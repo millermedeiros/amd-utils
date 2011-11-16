@@ -1,22 +1,15 @@
-define(['../number/MIN_INT', '../number/MAX_INT', '../number/toInt', './countSteps'], function(MIN_INT, MAX_INT, toInt, countSteps){
+define(['../number/MIN_INT', '../number/MAX_INT', '../number/toInt'], function(MIN_INT, MAX_INT, toInt){
 
     /**
-     * Gets random integer inside range or snap to min/max values.
-     * @version 0.3.0 (2011/11/15)
-     * @author Miller Medeiros
+     * Gets random integer between two integers inclusive.
+     * @version 0.4.0 (2011/11/15)
+     * @author Patrick McElhaney
      */
-    function randInt(min, max, shouldSnap){
+    function randInt(min, max){
         min = min == null? MIN_INT : toInt(min);
         max = max == null? MAX_INT : toInt(max);
 
-        var rnd = Math.random(),
-            diff = max - min;
-
-        if (shouldSnap || diff < 2) {
-            return rnd < 0.5? min : max;
-        }
-
-        return min + countSteps(rnd,  1 / (diff + 1));
+        return Math.floor((max-min+1) * Math.random()) + min;
     }
 
     return randInt;
