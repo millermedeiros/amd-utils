@@ -24,7 +24,7 @@
 
         function init() {
             $_sidebar = $('<div id="sidebar" />').prependTo('#wrapper');
-            $.get('_toc.html').done(onTocLoad);
+            $.get('toc_.html').done(onTocLoad);
         }
 
         function onTocLoad(data) {
@@ -92,30 +92,30 @@
     var syntax = {
         init : function(){
             SyntaxHighlighter.autoloader(
-              'applescript            _assets/js/lib/syntax-highlighter/shBrushAppleScript.js',
-              'actionscript3 as3      _assets/js/lib/syntax-highlighter/shBrushAS3.js',
-              'bash shell             _assets/js/lib/syntax-highlighter/shBrushBash.js',
-              'coldfusion cf          _assets/js/lib/syntax-highlighter/shBrushColdFusion.js',
-              'cpp c                  _assets/js/lib/syntax-highlighter/shBrushCpp.js',
-              'c# c-sharp csharp      _assets/js/lib/syntax-highlighter/shBrushCSharp.js',
-              'css                    _assets/js/lib/syntax-highlighter/shBrushCss.js',
-              'delphi pascal          _assets/js/lib/syntax-highlighter/shBrushDelphi.js',
-              'diff patch pas         _assets/js/lib/syntax-highlighter/shBrushDiff.js',
-              'erl erlang             _assets/js/lib/syntax-highlighter/shBrushErlang.js',
-              'groovy                 _assets/js/lib/syntax-highlighter/shBrushGroovy.js',
-              'java                   _assets/js/lib/syntax-highlighter/shBrushJava.js',
-              'jfx javafx             _assets/js/lib/syntax-highlighter/shBrushJavaFX.js',
-              'js jscript javascript  _assets/js/lib/syntax-highlighter/shBrushJScript.js',
-              'perl pl                _assets/js/lib/syntax-highlighter/shBrushPerl.js',
-              'php                    _assets/js/lib/syntax-highlighter/shBrushPhp.js',
-              'text plain             _assets/js/lib/syntax-highlighter/shBrushPlain.js',
-              'py python              _assets/js/lib/syntax-highlighter/shBrushPython.js',
-              'ruby rails ror rb      _assets/js/lib/syntax-highlighter/shBrushRuby.js',
-              'sass scss              _assets/js/lib/syntax-highlighter/shBrushSass.js',
-              'scala                  _assets/js/lib/syntax-highlighter/shBrushScala.js',
-              'sql                    _assets/js/lib/syntax-highlighter/shBrushSql.js',
-              'vb vbnet               _assets/js/lib/syntax-highlighter/shBrushVb.js',
-              'xml xhtml xslt html    _assets/js/lib/syntax-highlighter/shBrushXml.js'
+              'applescript            assets_/js/lib/syntax-highlighter/shBrushAppleScript.js',
+              'actionscript3 as3      assets_/js/lib/syntax-highlighter/shBrushAS3.js',
+              'bash shell             assets_/js/lib/syntax-highlighter/shBrushBash.js',
+              'coldfusion cf          assets_/js/lib/syntax-highlighter/shBrushColdFusion.js',
+              'cpp c                  assets_/js/lib/syntax-highlighter/shBrushCpp.js',
+              'c# c-sharp csharp      assets_/js/lib/syntax-highlighter/shBrushCSharp.js',
+              'css                    assets_/js/lib/syntax-highlighter/shBrushCss.js',
+              'delphi pascal          assets_/js/lib/syntax-highlighter/shBrushDelphi.js',
+              'diff patch pas         assets_/js/lib/syntax-highlighter/shBrushDiff.js',
+              'erl erlang             assets_/js/lib/syntax-highlighter/shBrushErlang.js',
+              'groovy                 assets_/js/lib/syntax-highlighter/shBrushGroovy.js',
+              'java                   assets_/js/lib/syntax-highlighter/shBrushJava.js',
+              'jfx javafx             assets_/js/lib/syntax-highlighter/shBrushJavaFX.js',
+              'js jscript javascript  assets_/js/lib/syntax-highlighter/shBrushJScript.js',
+              'perl pl                assets_/js/lib/syntax-highlighter/shBrushPerl.js',
+              'php                    assets_/js/lib/syntax-highlighter/shBrushPhp.js',
+              'text plain             assets_/js/lib/syntax-highlighter/shBrushPlain.js',
+              'py python              assets_/js/lib/syntax-highlighter/shBrushPython.js',
+              'ruby rails ror rb      assets_/js/lib/syntax-highlighter/shBrushRuby.js',
+              'sass scss              assets_/js/lib/syntax-highlighter/shBrushSass.js',
+              'scala                  assets_/js/lib/syntax-highlighter/shBrushScala.js',
+              'sql                    assets_/js/lib/syntax-highlighter/shBrushSql.js',
+              'vb vbnet               assets_/js/lib/syntax-highlighter/shBrushVb.js',
+              'xml xhtml xslt html    assets_/js/lib/syntax-highlighter/shBrushXml.js'
             );
 
             SyntaxHighlighter.all();
