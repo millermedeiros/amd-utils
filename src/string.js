@@ -3,6 +3,7 @@ define(function(require){
 //automatically generated, do not edit!
 //run `node build` instead
 return {
+    'batchReplace' : require('./string/batchReplace'),
     'camelCase' : require('./string/camelCase'),
     'crop' : require('./string/crop'),
     'escapeRegExp' : require('./string/escapeRegExp'),

@@ -23,6 +23,7 @@
 <h2>Table of Contents <a href="#toc" name="toc" class="deep-link">#</a></h2>
 
 <ul>
+<li><a href="#batchReplace">batchReplace()</a></li>
 <li><a href="#camelCase">camelCase()</a></li>
 <li><a href="#crop">crop()</a></li>
 <li><a href="#escapeRegExp">escapeRegExp()</a></li>
@@ -50,6 +51,28 @@
 <li><a href="#unHyphenate">unHyphenate()</a></li>
 <li><a href="#upperCase">upperCase()</a></li>
 </ul>
+
+<h2>batchReplace(str, replacements):String <a href="#batchReplace" id="batchReplace" class="deep-link">#</a></h2>
+
+<p>Do a series of <code>replace()</code> over a string.</p>
+
+<h3>Arguments</h3>
+
+<ol>
+<li><code>str</code> (String)</li>
+<li><code>replacements</code> (Array) : Array containing patterns and replacements.</li>
+</ol>
+
+<h3>Example</h3>
+
+<pre class="brush:js">
+// "aabbcc-555"
+batchReplace('abc 123', [
+    [/[a-z]/g, '$&$&'],
+    [/ /, '-'],
+    [/\d/g, '5']
+]);
+</pre>
 
 <h2>camelCase(str):String <a href="#camelCase" id="camelCase" class="deep-link">#</a></h2>
 

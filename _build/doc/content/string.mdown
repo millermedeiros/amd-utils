@@ -3,6 +3,29 @@
 String utilities.
 
 
+
+## batchReplace(str, replacements):String
+
+Do a series of `replace()` over a string.
+
+### Arguments
+
+ 1. `str` (String)
+ 2. `replacements` (Array) : Array containing patterns and replacements.
+
+### Example
+
+```js
+// "aabbcc-555"
+batchReplace('abc 123', [
+    [/[a-z]/g, '$&$&'],
+    [/ /, '-'],
+    [/\d/g, '5']
+]);
+```
+
+
+
 ## camelCase(str):String
 
 Convert string to "camelCase" text.

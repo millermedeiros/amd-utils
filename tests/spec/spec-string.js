@@ -1,6 +1,7 @@
 //automatically generated, do not edit!
 //run `node build` instead
 define([
+    'string/spec-batchReplace',
     'string/spec-camelCase',
     'string/spec-crop',
     'string/spec-escapeRegExp',
