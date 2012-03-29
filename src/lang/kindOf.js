@@ -1,21 +1,19 @@
 define(function () {
 
     var _rKind = /^\[object (.*)\]$/,
-        _toString = Object.prototype.toString,
-        UNDEF;
+        _toString = ({}).toString,
+        UNDEF,
+        UNDEF_STR = "" + UNDEF;
 
     /**
      * Gets the "kind" of value. (e.g. "String", "Number", etc)
      * @version 0.1.0 (2011/10/31)
      */
     function kindOf(val) {
-        if (val === null) {
-            return 'Null';
-        } else if (val === UNDEF) {
-            return 'Undefined';
-        } else {
-            return _rKind.exec( _toString.call(val) )[1];
-        }
+        return val === null ? "Null" :
+            val === UNDEF ? UNDEF_STR :
+            _rKind.exec( _toString.call(val) )[1];
     }
+
     return kindOf;
 });
