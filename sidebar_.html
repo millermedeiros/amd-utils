@@ -89,6 +89,11 @@ Does not allow duplicates and is case and type sensitive.</span>
                     <span class="desc">Returns minimum value inside array or use a custom iterator to define how items should be compared.</span>
                 </a>
                 
+                <a class="toc-item" href="array.html#pick">
+                    <h4>pick(arr):*</h4>
+                    <span class="desc">Gets a random item and remove it from the array.</span>
+                </a>
+                
                 <a class="toc-item" href="array.html#range">
                     <h4>range([start], stop[, step]):Array</h4>
                     <span class="desc">Creates a new Array with all the values inside the range. Works similarly to Python#range or PHP#range.</span>
@@ -178,6 +183,23 @@ annuity)</span>
                     <span class="desc">Returns the present value of an investment. The present value is the total amount that a series of future payments is worth now  (aka.
 annuity). - Works
 similarly to Microsoft Excel <code>PV()</code> function.</span>
+                </a>
+                
+            </div>
+        
+            <h3 class="toc-mod-title"><a href="function.html">function</a></h3>
+            <div class="toc-list">
+                
+                <a class="toc-item" href="function.html#compose">
+                    <h4>compose(...fn):Function</h4>
+                    <span class="desc">Returns the composition of a list of functions, where each function consumes the return value of the function that follows. In math terms, composing the
+functions <code>f()</code>, <code>g()</code>, and <code>h()</code> produces <code>f(g(h()))</code>.</span>
+                </a>
+                
+                <a class="toc-item" href="function.html#series">
+                    <h4>series(...fn):Function</h4>
+                    <span class="desc">Returns a function that will execute all the supplied functions in order and passing the same parameters to all of them. Useful for combining multiple
+<code>array/forEach</code> into a single one and/or for debugging.</span>
                 </a>
                 
             </div>
@@ -508,11 +530,6 @@ Will use <code>location.href</code> by default.</span>
                     <span class="desc">Returns a random element from the supplied arguments or from an array if single argument is an array.</span>
                 </a>
                 
-                <a class="toc-item" href="random.html#pick">
-                    <h4>pick(arr):*</h4>
-                    <span class="desc">Gets a random item and remove it from the array.</span>
-                </a>
-                
                 <a class="toc-item" href="random.html#rand">
                     <h4>rand([min], [max]):Number</h4>
                     <span class="desc">Gets a random number inside range or snap to min/max values.</span>
@@ -551,6 +568,11 @@ Will use <code>location.href</code> by default.</span>
                 <a class="toc-item" href="string.html#endsWith">
                     <h4>endsWith(str, suffix):String</h4>
                     <span class="desc">Checks if string ends with specified suffix.</span>
+                </a>
+                
+                <a class="toc-item" href="string.html#escapeHtml">
+                    <h4>escapeHtml(str):String</h4>
+                    <span class="desc">Escapes HTML special chars (<code>&gt;</code>, <code>&lt;</code>, <code>&amp;</code>, <code>"</code>, <code>'</code>).</span>
                 </a>
                 
                 <a class="toc-item" href="string.html#escapeRegExp">
@@ -671,6 +693,11 @@ Will use <code>location.href</code> by default.</span>
                 <a class="toc-item" href="string.html#unCamelCase">
                     <h4>unCamelCase(str):String</h4>
                     <span class="desc">Add space between camelCase text and convert first char of each word to lower case.</span>
+                </a>
+                
+                <a class="toc-item" href="string.html#unescapeHtml">
+                    <h4>unescapeHtml(str):String</h4>
+                    <span class="desc">Unescapes HTML special chars (<code>&gt;</code>, <code>&lt;</code>, <code>&amp;</code>, <code>"</code>, <code>'</code>).</span>
                 </a>
                 
                 <a class="toc-item" href="string.html#unHyphenate">
