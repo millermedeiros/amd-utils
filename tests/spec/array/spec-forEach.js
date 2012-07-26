@@ -15,6 +15,24 @@ define(['src/array/forEach'], function (forEach) {
             expect( result ).toBe( 15 );
         });
 
+        it('should support sparse arrays', function () {
+            var items = new Array(6);
+            items[2] = 3;
+            items[5] = 8;
+            items[10] = undefined; // it's a trap!
+
+            var result = [];
+
+            forEach(items, function(val, i, arr){
+                expect( arr ).toBe( items );
+                expect( val ).toBe( items[i] );
+                expect( i ).not.toBe( 4 ); // make sure it skips sparse items
+                result.push(val);
+            });
+
+            expect( result ).toEqual( [3, 8, undefined] );
+        });
+
     });
 
 });
