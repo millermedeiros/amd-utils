@@ -111,6 +111,19 @@ implementation is as good as possible.</p>
 
 <p>Released under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a>.</p>
 
+<h2>Node.js</h2>
+
+<p>AMD-utils also works on <a href="http://nodejs.org">node.js</a>, just run:</p>
+
+<p>npm install amd-utils</p>
+
+<p>It will download amd-utils from the NPM repository and convert the AMD modules
+into a node.js compatible module.</p>
+
+<pre><code>var utils = require('amd-utils');
+console.log( utils.math.clamp(100, 0, 50) ); // 50
+</code></pre>
+
 <h2>Building The Documentation</h2>
 
 <p>The documentation is generated based on markdown files inside the
