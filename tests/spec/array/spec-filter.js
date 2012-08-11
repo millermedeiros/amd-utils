@@ -28,6 +28,15 @@ define(['src/array/filter'], function (filter) {
 
         });
 
+        it('should return empty array if no items match', function () {
+            var items = [1,2,3,4,5];
+            var result = filter(items, function(val, i, arr){
+                return false;
+            });
+
+            expect( result ).toEqual( [] );
+        });
+
     });
 
 });
