@@ -60,7 +60,7 @@
 
 <p>Convert string to "camelCase" text.</p>
 
-<p>See: <a href="#pascalCase"><code>pascalCase()</code></a></p>
+<p>See: <a href="#pascalCase"><code>pascalCase()</code></a>, <a href="#unCamelCase"><code>unCamelCase()</code></a></p>
 
 <h3>Example</h3>
 
@@ -84,7 +84,7 @@ crop('lorem ipsum dolor', 10);      // "lorem..."
 crop('lorem ipsum dolor', 10, '+'); // "lorem+"
 </pre>
 
-<h2>endsWith(str, suffix):String <a href="#endsWith" id="endsWith" class="deep-link">#</a></h2>
+<h2>endsWith(str, suffix):Boolean <a href="#endsWith" id="endsWith" class="deep-link">#</a></h2>
 
 <p>Checks if string ends with specified suffix.</p>
 
@@ -128,7 +128,7 @@ reg = new RegExp(str);               // /\[lorem\.ipsum\]/
 <p>Replaces spaces with hyphens, split camelCase text, remove non-word chars,
 remove accents and convert to lower case.</p>
 
-<p>See: <a href="#toSlug"><code>toSlug()</code></a></p>
+<p>See: <a href="#toSlug"><code>toSlug()</code></a>, <a href="#unHyphenate"><code>unHyphenate</code></a></p>
 
 <pre class="brush:js">
 
@@ -364,7 +364,7 @@ var str = '<p><em>lorem</em> <strong>ipsum</strong></p>';
 stripHtmlTags(str); // "lorem ipsum"
 </pre>
 
-<h2>startsWith(str, prefix):String <a href="#startsWith" id="startsWith" class="deep-link">#</a></h2>
+<h2>startsWith(str, prefix):Boolean <a href="#startsWith" id="startsWith" class="deep-link">#</a></h2>
 
 <p>Checks if string starts with specified prefix.</p>
 
@@ -457,6 +457,8 @@ typecast('undefined');   // undefined
 <p>Add space between camelCase text and convert first char of each word to lower
 case.</p>
 
+<p>See: [<code>camelCase()</code>][#camelCase]</p>
+
 <h3>Example</h3>
 
 <pre class="brush:js">
@@ -480,6 +482,8 @@ unescapeHtml('lorem &amp;amp; &amp;quot;ipsum&amp;quot;'); // 'lorem & "ipsum"'
 <h2>unHyphenate(str):String <a href="#unHyphenate" id="unHyphenate" class="deep-link">#</a></h2>
 
 <p>Replaces hyphens with spaces. (only hyphens between word chars)</p>
+
+<p>See : <a href="#hyphenate"><code>hyphenate()</code></a></p>
 
 <h3>Example</h3>
 
