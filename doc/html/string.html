@@ -51,6 +51,7 @@
 <li><a href="#truncate">truncate()</a></li>
 <li><a href="#typecast">typecast()</a></li>
 <li><a href="#unCamelCase">unCamelCase()</a></li>
+<li><a href="#underscore">underscore()</a></li>
 <li><a href="#unescapeHtml">unescapeHtml()</a></li>
 <li><a href="#unHyphenate">unHyphenate()</a></li>
 <li><a href="#upperCase">upperCase()</a></li>
@@ -128,7 +129,8 @@ reg = new RegExp(str);               // /\[lorem\.ipsum\]/
 <p>Replaces spaces with hyphens, split camelCase text, remove non-word chars,
 remove accents and convert to lower case.</p>
 
-<p>See: <a href="#toSlug"><code>toSlug()</code></a>, <a href="#unHyphenate"><code>unHyphenate</code></a></p>
+<p>See: <a href="#toSlug"><code>toSlug()</code></a>, <a href="#underscore"><code>underscore()</code></a>,
+<a href="#unHyphenate"><code>unHyphenate</code></a></p>
 
 <pre class="brush:js">
 
@@ -378,15 +380,14 @@ startsWith('lorem ipsum', 'lorem'); // true
 startsWith('lorem ipsum', 'ipsum'); // false
 </pre>
 
-<h2>toSlug(str):String <a href="#toSlug" id="toSlug" class="deep-link">#</a></h2>
+<h2>toSlug(str[, delimeter]):String <a href="#toSlug" id="toSlug" class="deep-link">#</a></h2>
 
 <p>Convert to lower case, remove accents, remove non-word chars and replace spaces
-with hyphens.</p>
+with the delimeter. The default delimeter is a hyphen.</p>
 
-<p>Only difference from <a href="#hyphenate">string/hyphenate</a> is that it doesn't split
-camelCase text.</p>
+<p>Note that this does not split camelCase text.</p>
 
-<p>See: <a href="#hyphenate"><code>hyphenate()</code></a></p>
+<p>See: <a href="#hyphenate"><code>hyphenate()</code></a> and <a href="#underscore"><code>underscore()</code></a></p>
 
 <h3>Example</h3>
 
@@ -394,6 +395,7 @@ camelCase text.</p>
 
 var str = 'loremIpsum dolor spéçïãl chârs';
 toSlug(str); // "loremipsum-dolor-special-chars"
+toSlug(str, '_'); // "loremipsum_dolor_special_chars"
 </pre>
 
 <h2>trim(str):String <a href="#trim" id="trim" class="deep-link">#</a></h2>
@@ -464,6 +466,20 @@ case.</p>
 <pre class="brush:js">
 
 unCamelCase('loremIpsumDolor'); // "lorem ipsum dolor"
+</pre>
+
+<h2>underscore(str):String <a href="#underscore" id="underscore" class="deep-link">#</a></h2>
+
+<p>Replaces spaces with underscores, split camelCase text, remove non-word chars,
+remove accents and convert to lower case.</p>
+
+<p>See: <a href="#toSlug"><code>toSlug()</code></a>, <a href="#hyphenate"><code>hyphenate()</code></a></p>
+
+<pre class="brush:js">
+
+underscore(' %# lorem ipsum  ? $  dolor'); // "lorem_ipsum_dolor"
+underscore('spéçïãl çhârs');               // "special_chars"
+underscore('loremIpsum');                  // "lorem_ipsum"
 </pre>
 
 <h2>unescapeHtml(str):String <a href="#unescapeHtml" id="unescapeHtml" class="deep-link">#</a></h2>
