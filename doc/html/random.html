@@ -24,6 +24,7 @@
 
 <ul>
 <li><a href="#choice">choice()</a></li>
+<li><a href="#guid">guid()</a></li>
 <li><a href="#rand">rand()</a></li>
 <li><a href="#randBit">randBit()</a></li>
 <li><a href="#randHex">randHex()</a></li>
@@ -44,6 +45,18 @@ choice(1, 2, 3, 4, 5); // 3
 
 var arr = ['lorem', 'ipsum', 'dolor'];
 choice(arr); // 'dolor'
+</pre>
+
+<h2>guid():String <a href="#guid" id="guid" class="deep-link">#</a></h2>
+
+<p>Generates as best a guid that JavaScript can generate, see <a href="http://en.wikipedia.org/wiki/Globally_unique_identifier">Globally Unique Identifier</a></p>
+
+<h3>Example:</h3>
+
+<pre class="brush:js">
+
+guid();      // 830e9f50-ac7f-f369-a14f-ed0e62b2fa0b
+guid();      // 5de3d09b-e79c-1727-d32b-48c49228d508
 </pre>
 
 <h2>rand([min], [max]):Number <a href="#rand" id="rand" class="deep-link">#</a></h2>
