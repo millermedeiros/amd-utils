@@ -26,6 +26,7 @@
 <li><a href="#choice">choice()</a></li>
 <li><a href="#rand">rand()</a></li>
 <li><a href="#randBit">randBit()</a></li>
+<li><a href="#randHex">randHex()</a></li>
 <li><a href="#randInt">randInt()</a></li>
 <li><a href="#randSign">randSign()</a></li>
 </ul>
@@ -84,6 +85,22 @@ randBit(); // 0
 
 //same effect as
 choice(0, 1);
+</pre>
+
+<h2>randHex([size]):String <a href="#randHex" id="randHex" class="deep-link">#</a></h2>
+
+<p>Returns a random hexadecimal string.</p>
+
+<p>The default <code>size</code> is <code>6</code>.</p>
+
+<h3>Example:</h3>
+
+<pre class="brush:js">
+
+randHex();   // "dd8575"
+randHex();   // "e6baeb"
+randHex(2);  // "a2"
+randHex(30); // "effd7e2ad9a4a3067e30525fab983a"
 </pre>
 
 <h2>randInt([min], [max]):Number <a href="#randInt" id="randInt" class="deep-link">#</a></h2>
