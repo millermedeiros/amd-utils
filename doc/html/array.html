@@ -50,6 +50,7 @@
 <li><a href="#shuffle">shuffle()</a></li>
 <li><a href="#some">some()</a></li>
 <li><a href="#sort">sort()</a></li>
+<li><a href="#split">split()</a></li>
 <li><a href="#toLookup">toLookup()</a></li>
 <li><a href="#union">union()</a></li>
 <li><a href="#unique">unique()</a></li>
@@ -414,6 +415,24 @@ sort([2, 3, 1, 4], function(a, b){
     // reverse sort
     return b - a;
 });
+</pre>
+
+<h2>split(arr, [segments]):Array <a href="#split" id="split" class="deep-link">#</a></h2>
+
+<p>Splits an array into a fixed number of segments. The number of segments is
+specified by <code>segments</code> and defaults to 2. If the array cannot be evenly split,
+the first segments will contain the extra items. If <code>arr</code> is empty, an empty
+array is returned. If <code>arr.length</code> is less than <code>segments</code>, then the resulting
+array will have <code>arr.length</code> number of single-element arrays.</p>
+
+<h3>Example</h3>
+
+<pre class="brush:js">
+
+split([1, 2, 3, 4, 5], 3) // [ [1, 2], [3, 4], [5] ]
+split([1, 2, 3, 4, 5]) // [ [1, 2, 3], [4, 5] ]
+split([]) // []
+split([1, 2], 3) // [ [1], [2] ]
 </pre>
 
 <h2>toLookup(arr, key):Object <a href="#toLookup" id="toLookup" class="deep-link">#</a></h2>
