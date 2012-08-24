@@ -221,9 +221,10 @@ intersection(a, b, c); // [1]
 <p>Joins the strings in <code>arr</code>, inserting <code>separator</code> between each value.</p>
 
 <p>This ignores null values and empty strings that are in the array. <code>separator</code>
-defaults to an empty string.</p>
+defaults to an empty string. This will convert all non-string objects in the
+array to a string.</p>
 
-<h3>Examples</h3>
+<h3>Example</h3>
 
 <pre class="brush:js">
 
