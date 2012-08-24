@@ -36,6 +36,7 @@
 <li><a href="#indexOf">indexOf()</a></li>
 <li><a href="#insert">insert()</a></li>
 <li><a href="#intersection">intersection()</a></li>
+<li><a href="#join">join()</a></li>
 <li><a href="#lastIndexOf">lastIndexOf()</a></li>
 <li><a href="#map">map()</a></li>
 <li><a href="#max">max()</a></li>
@@ -213,6 +214,22 @@ var a = ['a', 'b', 1],
     b = ['c', 1],
     c = [1, 2, 3];
 intersection(a, b, c); // [1]
+</pre>
+
+<h2>join(arr, [separator]):String <a href="#join" id="join" class="deep-link">#</a></h2>
+
+<p>Joins the strings in <code>arr</code>, inserting <code>separator</code> between each value.</p>
+
+<p>This ignores null values and empty strings that are in the array. <code>separator</code>
+defaults to an empty string.</p>
+
+<h3>Examples</h3>
+
+<pre class="brush:js">
+
+join(['a', 'b', 'c']); // 'abc'
+join(['foo', 'bar'], ', '); // 'foo, bar'
+join([null, 'foo', '', 'bar', undefined], ':'); // 'foo:bar'
 </pre>
 
 <h2>lastIndexOf(arr, item, [fromIndex]):Number <a href="#lastIndexOf" id="lastIndexOf" class="deep-link">#</a></h2>
