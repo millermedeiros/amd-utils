@@ -22,6 +22,31 @@ See: [`mixIn()`](#mixIn), [`merge()`](#merge)
 
 
 
+## filter(obj, callback, [thisObj])
+
+Returns a new object containing all properties where `callback` returns true,
+similar to Array/filter. It does not use properties from the object's
+prototype.
+
+Callback receives the same arguments as `forOwn()`.
+
+See: [`forOwn()`](#forOwn)
+
+```js
+var obj = {
+    foo: 'value',
+    bar: 'bar value'
+};
+
+// returns { bar: 'bar value' }
+filter(obj, function(v) { return value.length > 5; });
+
+// returns { foo: 'value' }
+filter(obj, function(v, k) { return k === 'foo'; });
+```
+
+
+
 ## forOwn(obj, callback[, thisObj])
 
 Iterate over all own properties from an Object, similar to Array/forEach.
@@ -155,6 +180,26 @@ var obj = {
     lorem : 3
 };
 keys(obj); // ['foo', 'bar', 'lorem']
+```
+
+
+
+## map(obj, callback, [thisObj]):Object
+
+Returns a new object where the property values are the result of calling the
+callback for each property in the original object, similar to Array/map.
+
+The callback function receives the same arguments as in `forOwn()`.
+
+See: [`forOwn()`](#forOwn)
+
+```js
+var obj = { foo: 1, bar: 2 },
+    data = { foo: 0, bar: 1 };
+
+map(obj, function(v) { return v + 1; }); // { foo: 2, bar: 3 }
+map(obj, function(v, k) { return k; }); // { foo: "foo", bar: "bar" }
+map(obj, function(v, k) { return this[k]; }, data); // { foo: 0, bar: 1 }
 ```
 
 
