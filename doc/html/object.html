@@ -24,13 +24,13 @@
 
 <ul>
 <li><a href="#fillIn">fillIn()</a></li>
-<li><a href="#filterValues">filterValues()</a></li>
+<li><a href="#filter">filter()</a></li>
 <li><a href="#forOwn">forOwn()</a></li>
 <li><a href="#get">get()</a></li>
 <li><a href="#has">has()</a></li>
 <li><a href="#hasOwn">hasOwn()</a></li>
 <li><a href="#keys">keys()</a></li>
-<li><a href="#mapValues">mapValues()</a></li>
+<li><a href="#map">map()</a></li>
 <li><a href="#merge">merge()</a></li>
 <li><a href="#mixIn">mixIn()</a></li>
 <li><a href="#namespace">namespace()</a></li>
@@ -57,7 +57,7 @@ precedence.</p>
 
 <p>See: <a href="#mixIn"><code>mixIn()</code></a>, <a href="#merge"><code>merge()</code></a></p>
 
-<h2>filterValues(obj, callback, [thisObj]) <a href="#filterValues" id="filterValues" class="deep-link">#</a></h2>
+<h2>filter(obj, callback, [thisObj]) <a href="#filter" id="filter" class="deep-link">#</a></h2>
 
 <p>Returns a new object containing all properties where <code>callback</code> returns true,
 similar to Array/filter. It does not use properties from the object's
@@ -71,10 +71,10 @@ var obj = {
 };
 
 // returns { bar: 'bar value' }
-filterValues(obj, function(v) { return value.length > 5; });
+filter(obj, function(v) { return value.length > 5; });
 
 // returns { foo: 'value' }
-filterValues(obj, function(v, k) { return k === 'foo'; });
+filter(obj, function(v, k) { return k === 'foo'; });
 </pre>
 
 <h2>forOwn(obj, callback[, thisObj]) <a href="#forOwn" id="forOwn" class="deep-link">#</a></h2>
@@ -212,7 +212,7 @@ var obj = {
 keys(obj); // ['foo', 'bar', 'lorem']
 </pre>
 
-<h2>mapValues(obj, callback, [thisObj]):Object <a href="#mapValues" id="mapValues" class="deep-link">#</a></h2>
+<h2>map(obj, callback, [thisObj]):Object <a href="#map" id="map" class="deep-link">#</a></h2>
 
 <p>Returns a new object where the property values are the result of calling the
 callback for each property in the original object, similar to Array/map.</p>
@@ -222,9 +222,9 @@ callback for each property in the original object, similar to Array/map.</p>
 var obj = { foo: 1, bar: 2 },
     data = { foo: 0, bar: 1 };
 
-mapValues(obj, function(v) { return v + 1; }); // { foo: 2, bar: 3 }
-mapValues(obj, function(v, k) { return k; }); // { foo: "foo", bar: "bar" }
-mapValues(obj, function(v, k) { return this[k]; }, data); // { foo: 0, bar: 1 }
+map(obj, function(v) { return v + 1; }); // { foo: 2, bar: 3 }
+map(obj, function(v, k) { return k; }); // { foo: "foo", bar: "bar" }
+map(obj, function(v, k) { return this[k]; }, data); // { foo: 0, bar: 1 }
 </pre>
 
 <h2>merge(...objects):Object <a href="#merge" id="merge" class="deep-link">#</a></h2>
