@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/millermedeiros/amd-utils.png)](http://travis-ci.org/millermedeiros/amd-utils)
 # amd-utils #
 
 http://millermedeiros.github.com/amd-utils
