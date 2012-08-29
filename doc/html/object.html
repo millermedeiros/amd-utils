@@ -29,6 +29,7 @@
 <li><a href="#has">has()</a></li>
 <li><a href="#hasOwn">hasOwn()</a></li>
 <li><a href="#keys">keys()</a></li>
+<li><a href="#mapValues">mapValues()</a></li>
 <li><a href="#merge">merge()</a></li>
 <li><a href="#mixIn">mixIn()</a></li>
 <li><a href="#namespace">namespace()</a></li>
@@ -188,6 +189,21 @@ var obj = {
     lorem : 3
 };
 keys(obj); // ['foo', 'bar', 'lorem']
+</pre>
+
+<h2>mapValues(obj, callback):Object <a href="#mapValues" id="mapValues" class="deep-link">#</a></h2>
+
+<p>Returns a new object where the property values are the result of calling the
+callback for each property in the original object, similar to Array/map.</p>
+
+<pre class="brush:js">
+
+var obj = { foo: 1, bar: 2 },
+    data = { foo: 0, bar: 1 };
+
+mapValues(obj, function(v) { return v + 1; }); // { foo: 2, bar: 3 }
+mapValues(obj, function(v, k) { return k; }); // { foo: "foo", bar: "bar" }
+mapValues(obj, function(v, k) { return this[k]; }, data); // { foo: 0, bar: 1 }
 </pre>
 
 <h2>merge(...objects):Object <a href="#merge" id="merge" class="deep-link">#</a></h2>
