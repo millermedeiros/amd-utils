@@ -63,6 +63,10 @@ precedence.</p>
 similar to Array/filter. It does not use properties from the object's
 prototype.</p>
 
+<p>Callback receives the same arguments as <code>forOwn()</code>.</p>
+
+<p>See: <a href="#forOwn"><code>forOwn()</code></a></p>
+
 <pre class="brush:js">
 
 var obj = {
@@ -216,6 +220,10 @@ keys(obj); // ['foo', 'bar', 'lorem']
 
 <p>Returns a new object where the property values are the result of calling the
 callback for each property in the original object, similar to Array/map.</p>
+
+<p>The callback function receives the same arguments as in <code>forOwn()</code>.</p>
+
+<p>See: <a href="#forOwn"><code>forOwn()</code></a></p>
 
 <pre class="brush:js">
 
