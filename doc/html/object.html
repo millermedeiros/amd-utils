@@ -24,6 +24,7 @@
 
 <ul>
 <li><a href="#fillIn">fillIn()</a></li>
+<li><a href="#filterValues">filterValues()</a></li>
 <li><a href="#forOwn">forOwn()</a></li>
 <li><a href="#get">get()</a></li>
 <li><a href="#has">has()</a></li>
@@ -55,6 +56,26 @@ fillIn({foo:'ipsum'}, base); // {foo:'ipsum', num:123}
 precedence.</p>
 
 <p>See: <a href="#mixIn"><code>mixIn()</code></a>, <a href="#merge"><code>merge()</code></a></p>
+
+<h2>filterValues(obj, callback, [thisObj]) <a href="#filterValues" id="filterValues" class="deep-link">#</a></h2>
+
+<p>Returns a new object containing all properties where <code>callback</code> returns true,
+similar to Array/filter. It does not use properties from the object's
+prototype.</p>
+
+<pre class="brush:js">
+
+var obj = {
+    foo: 'value',
+    bar: 'bar value'
+};
+
+// returns { bar: 'bar value' }
+filterValues(obj, function(v) { return value.length > 5; });
+
+// returns { foo: 'value' }
+filterValues(obj, function(v, k) { return k === 'foo'; });
+</pre>
 
 <h2>forOwn(obj, callback[, thisObj]) <a href="#forOwn" id="forOwn" class="deep-link">#</a></h2>
 
