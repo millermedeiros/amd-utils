@@ -24,6 +24,7 @@
 
 <ul>
 <li><a href="#camelCase">camelCase()</a></li>
+<li><a href="#contains">contains()</a></li>
 <li><a href="#crop">crop()</a></li>
 <li><a href="#endsWith">endsWith()</a></li>
 <li><a href="#escapeHtml">escapeHtml()</a></li>
@@ -71,6 +72,20 @@ camelCase('lorem-ipsum-dolor'); // "loremIpsumDolor"
 camelCase('lorem ipsum dolor'); // "loremIpsumDolor"
 </pre>
 
+<h2>contains(str, substring):Boolean <a href="#contains" id="contains" class="deep-link">#</a></h2>
+
+<p>Checks if string contains the given substring.</p>
+
+<p>See: <a href="#startsWith"><code>startsWith()</code></a>, <a href="#endsWith"><code>endsWith()</code></a></p>
+
+<h3>Example</h3>
+
+<pre class="brush:js">
+
+contains('lorem', 'or');  // true
+contains('lorem', 'bar'); // false
+</pre>
+
 <h2>crop(str, maxChars, [append]):String <a href="#crop" id="crop" class="deep-link">#</a></h2>
 
 <p>Truncate string at full words. Alias to <code>truncate(str, maxChars, append, true);</code>.</p>
@@ -89,7 +104,7 @@ crop('lorem ipsum dolor', 10, '+'); // "lorem+"
 
 <p>Checks if string ends with specified suffix.</p>
 
-<p>See: <a href="#startsWith"><code>startsWith()</code></a></p>
+<p>See: <a href="#startsWith"><code>startsWith()</code></a>, <a href="#contains"><code>contains()</code></a></p>
 
 <h3>Example</h3>
 
@@ -372,7 +387,7 @@ stripHtmlTags(str); // "lorem ipsum"
 
 <p>Checks if string starts with specified prefix.</p>
 
-<p>See: <a href="#endsWith"><code>endsWith()</code></a></p>
+<p>See: <a href="#endsWith"><code>endsWith()</code></a>, <a href="#contains"><code>contains()</code></a></p>
 
 <h3>Example</h3>
 
