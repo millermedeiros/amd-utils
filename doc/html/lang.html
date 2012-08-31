@@ -32,6 +32,7 @@
 <li><a href="#isArray">isArray()</a></li>
 <li><a href="#isBoolean">isBoolean()</a></li>
 <li><a href="#isDate">isDate()</a></li>
+<li><a href="#isEmpty">isEmpty()</a></li>
 <li><a href="#isFunction">isFunction()</a></li>
 <li><a href="#isKind">isKind()</a></li>
 <li><a href="#isNull">isNull()</a></li>
@@ -171,6 +172,20 @@ myObj.getName(); // "lorem ipsum"
 <h2>isDate(val):Boolean <a href="#isDate" id="isDate" class="deep-link">#</a></h2>
 
 <p>If value is a Date.</p>
+
+<h2>isEmpty(val):Boolean <a href="#isEmpty" id="isEmpty" class="deep-link">#</a></h2>
+
+<p>Checks if Array/Object/String is empty.</p>
+
+<pre class="brush:js">
+
+isEmpty('');         // true
+isEmpty('bar');      // false
+isEmpty([]);         // true
+isEmpty([1, 2]);     // false
+isEmpty({});         // true
+isEmpty({a:1, b:2}); // false
+</pre>
 
 <h2>isFunction(val):Boolean <a href="#isFunction" id="isFunction" class="deep-link">#</a></h2>
 
