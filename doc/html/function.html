@@ -23,11 +23,24 @@
 <h2>Table of Contents <a href="#toc" name="toc" class="deep-link">#</a></h2>
 
 <ul>
+<li><a href="#bind">bind()</a></li>
 <li><a href="#compose">compose()</a></li>
 <li><a href="#func">func()</a></li>
 <li><a href="#prop">prop()</a></li>
 <li><a href="#series">series()</a></li>
 </ul>
+
+<h2>bind(fn, context, [...args]):Function <a href="#bind" id="bind" class="deep-link">#</a></h2>
+
+<p>Return a function that will execute in the given context, optionally adding any additional supplied parameters to the beginning of the arguments collection.</p>
+
+<h3>Arguments</h3>
+
+<ol>
+<li><code>fn</code> (Function)    : Target Function</li>
+<li><code>context</code> (Object) : Execution context (object used as <code>this</code>)</li>
+<li><code>[...args]</code> (*)    : Arguments (0...n arguments)</li>
+</ol>
 
 <h2>compose(...fn):Function <a href="#compose" id="compose" class="deep-link">#</a></h2>
 
