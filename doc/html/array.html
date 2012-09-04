@@ -46,6 +46,7 @@
 <li><a href="#range">range()</a></li>
 <li><a href="#reduce">reduce()</a></li>
 <li><a href="#reduceRight">reduceRight()</a></li>
+<li><a href="#reject">reject()</a></li>
 <li><a href="#remove">remove()</a></li>
 <li><a href="#removeAll">removeAll()</a></li>
 <li><a href="#shuffle">shuffle()</a></li>
@@ -144,6 +145,8 @@ difference(a, b); // ['a', 'b']
 <p>Creates a new array with all elements that pass the callback test.</p>
 
 <p>more info at <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/filter">MDN Array#filter</a></p>
+
+<p>See <a href="#reject"><code>reject()</code></a></p>
 
 <h2>find(arr, callback, [thisObj]):void <a href="#find" id="find" class="deep-link">#</a></h2>
 
@@ -343,6 +346,21 @@ left-to-right) as to reduce it to a single value.</p>
 right-to-left) as to reduce it to a single value.</p>
 
 <p>more info at <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/reduceRight">MDN Array#reduceRight</a></p>
+
+<h2>reject(arr, fn, thisObj):Array <a href="#reject" id="reject" class="deep-link">#</a></h2>
+
+<p>Creates a new array with all the elements that do <strong>not</strong> pass the truth test.
+Opposite of <a href="#filter"><code>filter()</code></a>.</p>
+
+<p>See <a href="#filter"><code>filter()</code></a></p>
+
+<h3>Example</h3>
+
+<pre class="brush:js">
+
+var numbers = [1, 2, 3, 4, 5, 6];
+reject(number, function(x) { return (x % 2) === 0; }); // [2, 4, 6]
+</pre>
 
 <h2>remove(arr, item):void <a href="#remove" id="remove" class="deep-link">#</a></h2>
 
