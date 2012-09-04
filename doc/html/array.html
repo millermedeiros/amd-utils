@@ -354,6 +354,14 @@ Opposite of <a href="#filter"><code>filter()</code></a>.</p>
 
 <p>See <a href="#filter"><code>filter()</code></a></p>
 
+<h3>Example</h3>
+
+<pre class="brush:js">
+
+var numbers = [1, 2, 3, 4, 5, 6];
+reject(number, function(x) { return (x % 2) === 0; }); // [2, 4, 6]
+</pre>
+
 <h2>remove(arr, item):void <a href="#remove" id="remove" class="deep-link">#</a></h2>
 
 <p>Remove a single item from the array.</p>
