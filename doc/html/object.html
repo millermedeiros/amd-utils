@@ -34,6 +34,7 @@
 <li><a href="#merge">merge()</a></li>
 <li><a href="#mixIn">mixIn()</a></li>
 <li><a href="#namespace">namespace()</a></li>
+<li><a href="#pick">pick()</a></li>
 <li><a href="#values">values()</a></li>
 <li><a href="#set">set()</a></li>
 <li><a href="#size">size()</a></li>
@@ -65,7 +66,7 @@ prototype.</p>
 
 <p>Callback receives the same arguments as <code>forOwn()</code>.</p>
 
-<p>See: <a href="#forOwn"><code>forOwn()</code></a></p>
+<p>See: <a href="#forOwn"><code>forOwn()</code></a>, <a href="#pick"><code>pick()</code></a></p>
 
 <pre class="brush:js">
 
@@ -293,6 +294,29 @@ object or existing object.</p>
 var obj = {};
 namespace(obj, 'foo.bar'); // {}
 console.log(obj);          // {foo:{bar:{}}}
+</pre>
+
+<h2>pick(obj, ...keys):Object <a href="#pick" id="pick" class="deep-link">#</a></h2>
+
+<p>Return a copy of the object that contains only the whitelisted keys.</p>
+
+<p>See: <a href="#filter"><code>filter()</code></a></p>
+
+<pre class="brush:js">
+
+var user = {
+    firstName : 'John',
+    lastName : 'Doe',
+    dob : '1985/07/23',
+    gender : 'male'
+};
+
+// can pass an array of keys as second argument
+var keys = ['firstName', 'dob']
+pick(user, keys); // {firstName:"John", dob: "1985/07/23"}
+
+// or multiple arguments
+pick(user, 'firstName', 'lastName'); // {firstName:"John", lastName: "Doe"}
 </pre>
 
 <h2>values(obj):Array <a href="#values" id="values" class="deep-link">#</a></h2>
