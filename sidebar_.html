@@ -124,6 +124,11 @@ Does not allow duplicates and is case and type sensitive.</span>
                     <span class="desc">Crossbrowser ES5 <code>Array.reduceRight()</code>.</span>
                 </a>
                 
+                <a class="toc-item" href="array.html#reject">
+                    <h4>reject(arr, fn, thisObj):Array</h4>
+                    <span class="desc">Creates a new array with all the elements that do <strong>not</strong> pass the truth test. Opposite of <code>filter()</code>.</span>
+                </a>
+                
                 <a class="toc-item" href="array.html#remove">
                     <h4>remove(arr, item):void</h4>
                     <span class="desc">Remove a single item from the array.</span>
@@ -530,6 +535,11 @@ affect source objects.</span>
                     <span class="desc">Creates an empty object inside namespace if not existent. Will return created object or existing object.</span>
                 </a>
                 
+                <a class="toc-item" href="object.html#pick">
+                    <h4>pick(obj, ...keys):Object</h4>
+                    <span class="desc">Return a copy of the object that contains only the whitelisted keys.</span>
+                </a>
+                
                 <a class="toc-item" href="object.html#values">
                     <h4>values(obj):Array</h4>
                     <span class="desc">Returns an array of all own enumerable properties values found upon a given object.</span>
@@ -555,35 +565,33 @@ affect source objects.</span>
             <h3 class="toc-mod-title"><a href="queryString.html">queryString</a></h3>
             <div class="toc-list">
                 
-                <a class="toc-item" href="queryString.html#decodeQuery">
-                    <h4>decodeQuery(str):Object</h4>
-                    <span class="desc">Parses query string and creates an object of keys => vals. Will typecast value with <code>string/typecast</code> and decode string parameters using
-<code>decodeURIComponent()</code>.</span>
+                <a class="toc-item" href="queryString.html#decode">
+                    <h4>decode(queryStr[, shouldTypecast]):Object</h4>
+                    <span class="desc">Parses query string and creates an object of keys => vals.</span>
                 </a>
                 
                 <a class="toc-item" href="queryString.html#encodeQuery">
                     <h4>encodeQuery(obj):String</h4>
-                    <span class="desc">Encode object into a query string. Will encode parameters with <code>encodeURIComponent()</code>.</span>
+                    <span class="desc">Encode object into a query string.</span>
                 </a>
                 
                 <a class="toc-item" href="queryString.html#getParam">
-                    <h4>getParam(param, url):*</h4>
-                    <span class="desc">Get query parameter value. Will typecast value with <code>string/typecast</code>. Allow parsing a custom URL or uses <code>location.href</code> by default.</span>
+                    <h4>getParam(url, param[, shouldTypecast]):*</h4>
+                    <span class="desc">Get query parameter value.</span>
                 </a>
                 
-                <a class="toc-item" href="queryString.html#getQueryObject">
-                    <h4>getQueryObject(url):Object</h4>
-                    <span class="desc">Parses URL, extracts query string and decodes it. Will use <code>location.href</code> by default.</span>
+                <a class="toc-item" href="queryString.html#parse">
+                    <h4>parse(url[, shouldTypecast]):Object</h4>
+                    <span class="desc">Parses URL, extracts query string and decodes it.</span>
                 </a>
                 
-                <a class="toc-item" href="queryString.html#getQueryString">
-                    <h4>getQueryString(url):String</h4>
-                    <span class="desc">Gets full query as string with all special chars decoded. It avoid issues with query string inside <code>location.hash</code> (e.g. "index.html?dolor=1#/lorem/?foo=bar").
-Will use <code>location.href</code> by default.</span>
+                <a class="toc-item" href="queryString.html#getQuery">
+                    <h4>getQuery(url):String</h4>
+                    <span class="desc">Gets full query as string with all special chars decoded.</span>
                 </a>
                 
-                <a class="toc-item" href="queryString.html#hasParam">
-                    <h4>hasParam(paramName, url):Boolen</h4>
+                <a class="toc-item" href="queryString.html#contains">
+                    <h4>contains(url, paramName):Boolen</h4>
                     <span class="desc">Checks if query string contains parameter.</span>
                 </a>
                 
