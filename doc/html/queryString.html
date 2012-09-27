@@ -23,112 +23,106 @@
 <h2>Table of Contents <a href="#toc" name="toc" class="deep-link">#</a></h2>
 
 <ul>
-<li><a href="#decodeQuery">decodeQuery()</a></li>
+<li><a href="#decode">decode()</a></li>
 <li><a href="#encodeQuery">encodeQuery()</a></li>
 <li><a href="#getParam">getParam()</a></li>
-<li><a href="#getQueryObject">getQueryObject()</a></li>
-<li><a href="#getQueryString">getQueryString()</a></li>
-<li><a href="#hasParam">hasParam()</a></li>
+<li><a href="#parse">parse()</a></li>
+<li><a href="#getQuery">getQuery()</a></li>
+<li><a href="#contains">contains()</a></li>
 </ul>
 
-<h2>decodeQuery(str):Object <a href="#decodeQuery" id="decodeQuery" class="deep-link">#</a></h2>
+<h2>decode(queryStr[, shouldTypecast]):Object <a href="#decode" id="decode" class="deep-link">#</a></h2>
 
-<p>Parses query string and creates an object of keys => vals. Will typecast value
-with <code>string/typecast</code> and decode string parameters using
-<code>decodeURIComponent()</code>.</p>
+<p>Parses query string and creates an object of keys => vals.</p>
+
+<p>Will typecast value with <a href="string.html#typecast"><code>string/typecast</code></a> by default
+and decode string parameters using <code>decodeURIComponent()</code>.</p>
 
 <pre class="brush:js">
 
-decodeQuery('?foo=bar&lorem=123'); // {foo: "bar", lorem: 123}
+var query = '?foo=bar&lorem=123';
+decode(query);        // {foo: "bar", lorem: 123}
+decode(query, false); // {foo: "bar", lorem: "123"}
 </pre>
 
 <h2>encodeQuery(obj):String <a href="#encodeQuery" id="encodeQuery" class="deep-link">#</a></h2>
 
-<p>Encode object into a query string. Will encode parameters with
-<code>encodeURIComponent()</code>.</p>
+<p>Encode object into a query string.</p>
+
+<p>Will encode parameters with <code>encodeURIComponent()</code>.</p>
 
 <pre class="brush:js">
 
 encodeQuery({foo: "bar", lorem: 123}); // "?foo=bar&lorem=123"
 </pre>
 
-<h2>getParam(param, url):* <a href="#getParam" id="getParam" class="deep-link">#</a></h2>
+<h2>getParam(url, param[, shouldTypecast]):* <a href="#getParam" id="getParam" class="deep-link">#</a></h2>
 
-<p>Get query parameter value. Will typecast value with <code>string/typecast</code>.
-Allow parsing a custom URL or uses <code>location.href</code> by default.</p>
+<p>Get query parameter value.</p>
+
+<p>Will typecast value with <a href="string.html#typecast"><code>string/typecast</code></a> by default.</p>
 
 <h3>Arguments:</h3>
 
 <ol>
+<li><code>url</code> (String) : Url.</li>
 <li><code>param</code> (String) : Parameter name.</li>
-<li><code>[url]</code> (String) : Url. Will use <code>location.href</code> by default.</li>
+<li><code>[shouldTypecast]</code> (Boolean) : If it should typecast value.</li>
 </ol>
 
 <h3>Example:</h3>
 
 <pre class="brush:js">
 
-//if current URI = example.com/?foo=bar&lorem=123&ipsum=false
-getParam('foo');   // "bar"
-getParam('lorem'); // 123
-getPram('ipsum');  // false
-
-//allow custom URL
-getParam('dolor', 'example.com/?dolor=amet'); // "amet"
+var url = 'example.com/?foo=bar&lorem=123&ipsum=false';
+getParam(url, 'dolor');        // "amet"
+getParam(url, 'lorem');        // 123
+getParam(url, 'lorem', false); // "123"
 </pre>
 
-<h2>getQueryObject(url):Object <a href="#getQueryObject" id="getQueryObject" class="deep-link">#</a></h2>
+<h2>parse(url[, shouldTypecast]):Object <a href="#parse" id="parse" class="deep-link">#</a></h2>
 
-<p>Parses URL, extracts query string and decodes it. Will use <code>location.href</code> by default.</p>
+<p>Parses URL, extracts query string and decodes it.</p>
 
-<p>Alias to: <code>decodeQuery(getQueryString(url))</code>.</p>
+<p>It will typecast all properties of the query object unless second argument is
+<code>false</code>.</p>
+
+<p>Alias to: <code>decode(getQuery(url))</code>.</p>
 
 <pre class="brush:js">
 
-//if current URI = example.com/?foo=bar&lorem=123&ipsum=false
-getQueryObject(); // {foo: "bar", lorem: 123, ipsum: false}
-
-//allow custom URL
-getQueryObject('example.com/?lorem=ipsum'); // {lorem: "ipsum"}
+var url = 'example.com/?lorem=ipsum&a=123';
+parse(url);        // {lorem: "ipsum", a: 123}
+parse(url, false); // {lorem: "ipsum", a: "123"}
 </pre>
 
-<h2>getQueryString(url):String <a href="#getQueryString" id="getQueryString" class="deep-link">#</a></h2>
+<h2>getQuery(url):String <a href="#getQuery" id="getQuery" class="deep-link">#</a></h2>
 
-<p>Gets full query as string with all special chars decoded. It avoid issues with
-query string inside <code>location.hash</code> (e.g. "index.html?dolor=1#/lorem/?foo=bar").
-Will use <code>location.href</code> by default.</p>
+<p>Gets full query as string with all special chars decoded.</p>
 
 <pre class="brush:js">
 
-//if current URI = example.com/?foo=bar&lorem=123&ipsum=false
-getQueryString(); // "?foo=bar&lorem=123&ipsum=false"
-
-//allow custom URL
-getQueryString('example.com/?lorem=ipsum'); // "?lorem=ipsum"
+getQuery('example.com/?lorem=ipsum'); // "?lorem=ipsum"
 </pre>
 
-<h2>hasParam(paramName, url):Boolen <a href="#hasParam" id="hasParam" class="deep-link">#</a></h2>
+<h2>contains(url, paramName):Boolen <a href="#contains" id="contains" class="deep-link">#</a></h2>
 
 <p>Checks if query string contains parameter.</p>
 
 <h3>Arguments:</h3>
 
 <ol>
+<li><code>url</code> (String)     : URL or query string.</li>
 <li><code>paramName</code> (String) : Parameter name.</li>
-<li><code>[url]</code> (String)     : Custom URL. Will use <code>location.href</code> by default.</li>
 </ol>
 
 <h3>Example:</h3>
 
 <pre class="brush:js">
 
-//if current URI = example.com/?foo=bar&lorem=123&ipsum=false
-hasParam('foo');   // true
-hasParam('dolor'); // false
-
-//allow custom URL
-hasParam('lorem', 'example.com/?lorem=ipsum'); // true
-hasParam('foo', 'example.com/?lorem=ipsum');   //false
+var url = 'example.com/?lorem=ipsum';
+contains(url, 'lorem'); // true
+contains(url, 'foo');   //false
 </pre>
 
 <hr />
