@@ -19,17 +19,18 @@
     "bugs" : {
         "url" : "https://github.com/millermedeiros/amd-utils/issues/"
     },
-    "main" : "./pkg/index.js",
+    "main" : "./index.js",
     "dependencies" : {
         "wrench" : "~1.3.9",
         "amdefine" : ">= 0.0.2"
     },
     "scripts" : {
-        "install" : "node ./_build/convert.js"
+        "install" : "node ./_build/convert.js",
+        "update" : "node ./_build/convert.js"
     },
     "directories" : {
         "doc" : "./doc/mdown",
-        "lib" : "./pkg"
+        "lib" : "./"
     },
     "devDependencies" : {
         "mdoc" : "~0.3.2",
