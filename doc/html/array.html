@@ -36,6 +36,7 @@
 <li><a href="#indexOf">indexOf()</a></li>
 <li><a href="#insert">insert()</a></li>
 <li><a href="#intersection">intersection()</a></li>
+<li><a href="#invoke">invoke()</a></li>
 <li><a href="#join">join()</a></li>
 <li><a href="#lastIndexOf">lastIndexOf()</a></li>
 <li><a href="#map">map()</a></li>
@@ -201,7 +202,7 @@ insert(arr, 'c');       // 3 : ['a', 'b', 'c']
 insert(arr, 1, 2, 'b'); // 5 : ['a', 'b', 'c', 1, 2]
 </pre>
 
-<h2>intersection(...arrs):Arrays <a href="#intersection" id="intersection" class="deep-link">#</a></h2>
+<h2>intersection(...arrs):Array <a href="#intersection" id="intersection" class="deep-link">#</a></h2>
 
 <p>Return a new Array with elements common to all Arrays.</p>
 
@@ -217,6 +218,15 @@ var a = ['a', 'b', 1],
     b = ['c', 1],
     c = [1, 2, 3];
 intersection(a, b, c); // [1]
+</pre>
+
+<h2>invoke(arr, methodName[, ...args]):Array <a href="#invoke" id="invoke" class="deep-link">#</a></h2>
+
+<p>Call <code>methodName</code> on each item of the array passing custom arguments if needed.</p>
+
+<pre class="brush:js">
+
+invoke([[3,2,1], [9,5,2]], 'sort'); // [[1,2,3], [2,5,9]]
 </pre>
 
 <h2>join(arr, [separator]):String <a href="#join" id="join" class="deep-link">#</a></h2>
