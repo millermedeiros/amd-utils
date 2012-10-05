@@ -24,7 +24,7 @@
 
 <ul>
 <li><a href="#decode">decode()</a></li>
-<li><a href="#encodeQuery">encodeQuery()</a></li>
+<li><a href="#encode">encode()</a></li>
 <li><a href="#getParam">getParam()</a></li>
 <li><a href="#parse">parse()</a></li>
 <li><a href="#getQuery">getQuery()</a></li>
@@ -45,7 +45,7 @@ decode(query);        // {foo: "bar", lorem: 123}
 decode(query, false); // {foo: "bar", lorem: "123"}
 </pre>
 
-<h2>encodeQuery(obj):String <a href="#encodeQuery" id="encodeQuery" class="deep-link">#</a></h2>
+<h2>encode(obj):String <a href="#encode" id="encode" class="deep-link">#</a></h2>
 
 <p>Encode object into a query string.</p>
 
@@ -53,7 +53,7 @@ decode(query, false); // {foo: "bar", lorem: "123"}
 
 <pre class="brush:js">
 
-encodeQuery({foo: "bar", lorem: 123}); // "?foo=bar&lorem=123"
+encode({foo: "bar", lorem: 123}); // "?foo=bar&lorem=123"
 </pre>
 
 <h2>getParam(url, param[, shouldTypecast]):* <a href="#getParam" id="getParam" class="deep-link">#</a></h2>
