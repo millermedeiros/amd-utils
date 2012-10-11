@@ -23,13 +23,34 @@
 <h2>Table of Contents <a href="#toc" name="toc" class="deep-link">#</a></h2>
 
 <ul>
+<li><a href="#contains">contains()</a></li>
 <li><a href="#decode">decode()</a></li>
 <li><a href="#encode">encode()</a></li>
 <li><a href="#getParam">getParam()</a></li>
 <li><a href="#parse">parse()</a></li>
 <li><a href="#getQuery">getQuery()</a></li>
-<li><a href="#contains">contains()</a></li>
+<li><a href="#setParam">setParam()</a></li>
 </ul>
+
+<h2>contains(url, paramName):Boolen <a href="#contains" id="contains" class="deep-link">#</a></h2>
+
+<p>Checks if query string contains parameter.</p>
+
+<h3>Arguments:</h3>
+
+<ol>
+<li><code>url</code> (String)     : URL or query string.</li>
+<li><code>paramName</code> (String) : Parameter name.</li>
+</ol>
+
+<h3>Example:</h3>
+
+<pre class="brush:js">
+
+var url = 'example.com/?lorem=ipsum';
+contains(url, 'lorem'); // true
+contains(url, 'foo');   //false
+</pre>
 
 <h2>decode(queryStr[, shouldTypecast]):Object <a href="#decode" id="decode" class="deep-link">#</a></h2>
 
@@ -61,6 +82,8 @@ encode({foo: "bar", lorem: 123}); // "?foo=bar&lorem=123"
 <p>Get query parameter value.</p>
 
 <p>Will typecast value with <a href="string.html#typecast"><code>string/typecast</code></a> by default.</p>
+
+<p>See: <a href="#setParam"><code>setParam()</code></a></p>
 
 <h3>Arguments:</h3>
 
@@ -105,24 +128,16 @@ parse(url, false); // {lorem: "ipsum", a: "123"}
 getQuery('example.com/?lorem=ipsum'); // "?lorem=ipsum"
 </pre>
 
-<h2>contains(url, paramName):Boolen <a href="#contains" id="contains" class="deep-link">#</a></h2>
+<h2>setParam(url, paramName, value):String <a href="#setParam" id="setParam" class="deep-link">#</a></h2>
 
-<p>Checks if query string contains parameter.</p>
+<p>Add new query string parameter to URL or update existing value.</p>
 
-<h3>Arguments:</h3>
-
-<ol>
-<li><code>url</code> (String)     : URL or query string.</li>
-<li><code>paramName</code> (String) : Parameter name.</li>
-</ol>
-
-<h3>Example:</h3>
+<p>See: <a href="#getParam"><code>getParam()</code></a></p>
 
 <pre class="brush:js">
 
-var url = 'example.com/?lorem=ipsum';
-contains(url, 'lorem'); // true
-contains(url, 'foo');   //false
+setParam('?foo=bar&lorem=0', 'lorem', 'ipsum'); // '?foo=bar&lorem=ipsum'
+setParam('?lorem=1', 'foo', 123); // '?lorem=1&foo=123'
 </pre>
 
 <hr />
