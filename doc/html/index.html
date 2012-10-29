@@ -140,8 +140,8 @@ console.log( utils.math.clamp(100, 0, 50) ); // 50
 <code>doc/mdown</code> folder using <a href="https://github.com/millermedeiros/mdoc">mdoc</a>.
 To compile the docs run:</p>
 
-<pre><code>npm install .
-node build
+<pre><code>npm install --dev
+node build doc
 </code></pre>
 
 <p>It will replace all the files inside the <code>doc/html</code> folder and update packages
@@ -150,7 +150,23 @@ and specs runners, this way we avoid human mistakes.</p>
 <p>Documentation files should be always up-to-date since modules are only
 committed to the <code>master</code> branch after they get proper tests and documentation.</p>
 
-<p>Online documentation can be found at <a href='http://millermedeiros.github.com/amd-utils'>http://millermedeiros.github.com/amd-utils</a></p>
+<h2>Keeping packages and specs in sync</h2>
+
+<p>The build script can be used to update packages and specs files:</p>
+
+<pre><code>node build pkg
+</code></pre>
+
+<p>You can also add new modules with the command <code>node build add
+package/moduleName</code>, this will create a new module <code>moduleName</code> inside the
+folder <code>src/package</code> and also a failing spec inside the <code>tests</code> folder.</p>
+
+<p>For other available options see <code>node build -h</code>.</p>
+
+<h2>Documentation</h2>
+
+<p>Online documentation can be found at <a href='http://millermedeiros.github.com/amd-utils'>http://millermedeiros.github.com/amd-utils</a>
+or inside the <code>doc</code> folder.</p>
 <h2>Documentation</h2>
 <ul class="mod-list">
 
