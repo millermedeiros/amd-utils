@@ -33,6 +33,7 @@
 <li><a href="#isBoolean">isBoolean()</a></li>
 <li><a href="#isDate">isDate()</a></li>
 <li><a href="#isEmpty">isEmpty()</a></li>
+<li><a href="#isFinite">isFinite()</a></li>
 <li><a href="#isFunction">isFunction()</a></li>
 <li><a href="#isKind">isKind()</a></li>
 <li><a href="#isNaN">isNaN()</a></li>
@@ -187,6 +188,13 @@ isEmpty([1, 2]);     // false
 isEmpty({});         // true
 isEmpty({a:1, b:2}); // false
 </pre>
+
+<h2>isFinite(val):Boolean <a href="#isFinite" id="isFinite" class="deep-link">#</a></h2>
+
+<p>Checks if value is Finite.</p>
+
+<p>Note: This is not the same as native <code>isFinite</code>, which will return <code>true</code> for
+booleans and empty strings. See <a href='http://es5.github.com/#x15.1.2.5'>http://es5.github.com/#x15.1.2.5</a>.</p>
 
 <h2>isFunction(val):Boolean <a href="#isFunction" id="isFunction" class="deep-link">#</a></h2>
 
