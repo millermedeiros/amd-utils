@@ -134,17 +134,23 @@ difference(a, b); // ['a', 'b']
 
 <h2>every(arr, callback, [thisObj]):Array <a href="#every" id="every" class="deep-link">#</a></h2>
 
-<p>Crossbrowser ES5 <code>Array.every()</code>.</p>
+<p>Crossbrowser <code>Array.every()</code>.</p>
 
 <p>Tests whether all elements in the array pass the test implemented by the provided function.</p>
+
+<p>It differs from ES5 since it will also loop over sparse items in the array to
+normalize the behavior across browsers (avoid inconsistencies).</p>
 
 <p>more info at <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/every">MDN Array#every</a></p>
 
 <h2>filter(arr, callback, [thisObj]):Array <a href="#filter" id="filter" class="deep-link">#</a></h2>
 
-<p>Crossbrowser ES5 <code>Array.filter()</code>.</p>
+<p>Crossbrowser <code>Array.filter()</code>.</p>
 
 <p>Creates a new array with all elements that pass the callback test.</p>
+
+<p>It differs from ES5 since it will also loop over sparse items in the array to
+normalize the behavior across browsers (avoid inconsistencies).</p>
 
 <p>more info at <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/filter">MDN Array#filter</a></p>
 
@@ -181,11 +187,17 @@ flatten([1, [2], [3, [4, 5]]], true);
 
 <p>It allows exiting the iteration early by returning <code>false</code> on the callback.</p>
 
+<p>It differs from ES5 since it will also loop over sparse items in the array to
+normalize the behavior across browsers (avoid inconsistencies).</p>
+
 <p>more info at <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/forEach">MDN Array#forEach</a></p>
 
 <h2>indexOf(arr, item, [fromIndex]):Number <a href="#indexOf" id="indexOf" class="deep-link">#</a></h2>
 
-<p>Crossbrowser ES5 <code>Array.indexOf()</code>.</p>
+<p>Crossbrowser <code>Array.indexOf()</code>.</p>
+
+<p>It differs from ES5 since it will also loop over sparse items in the array to
+normalize the behavior across browsers (avoid inconsistencies).</p>
 
 <p>more info at <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/indexOf">MDN Array#indexOf</a></p>
 
@@ -251,16 +263,22 @@ join([null, 'foo', '', 'bar', undefined], ':'); // 'foo:bar'
 
 <h2>lastIndexOf(arr, item, [fromIndex]):Number <a href="#lastIndexOf" id="lastIndexOf" class="deep-link">#</a></h2>
 
-<p>Crossbrowser ES5 <code>Array.lastIndexOf()</code>.</p>
+<p>Crossbrowser <code>Array.lastIndexOf()</code>.</p>
+
+<p>It differs from ES5 since it will also loop over sparse items in the array to
+normalize the behavior across browsers (avoid inconsistencies).</p>
 
 <p>more info at <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/lastIndexOf">MDN Array#lastIndexOf</a></p>
 
 <h2>map(arr, callback):Array <a href="#map" id="map" class="deep-link">#</a></h2>
 
-<p>Crossbrowser ES5 <code>Array.map()</code>.</p>
+<p>Crossbrowser <code>Array.map()</code>.</p>
 
 <p>Creates a new array with the results of calling a provided function on every
 element in this array.</p>
+
+<p>It differs from ES5 since it will also loop over sparse items in the array to
+normalize the behavior across browsers (avoid inconsistencies).</p>
 
 <p>more info at <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/map">MDN Array#map</a></p>
 
@@ -344,19 +362,25 @@ range(20, 40, 5); // [20, 25, 30, 35, 40]
 
 <h2>reduce(arr, fn):* <a href="#reduce" id="reduce" class="deep-link">#</a></h2>
 
-<p>Crossbrowser ES5 <code>Array.reduce()</code>.</p>
+<p>Crossbrowser <code>Array.reduce()</code>.</p>
 
 <p>Apply a function against an accumulator and each value of the array (from
 left-to-right) as to reduce it to a single value.</p>
+
+<p>It differs from ES5 since it will also loop over sparse items in the array to
+normalize the behavior across browsers (avoid inconsistencies).</p>
 
 <p>more info at <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/reduce">MDN Array#reduce</a></p>
 
 <h2>reduceRight(arr, fn):* <a href="#reduceRight" id="reduceRight" class="deep-link">#</a></h2>
 
-<p>Crossbrowser ES5 <code>Array.reduceRight()</code>.</p>
+<p>Crossbrowser <code>Array.reduceRight()</code>.</p>
 
 <p>Apply a function simultaneously against two values of the array (from
 right-to-left) as to reduce it to a single value.</p>
+
+<p>It differs from ES5 since it will also loop over sparse items in the array to
+normalize the behavior across browsers (avoid inconsistencies).</p>
 
 <p>more info at <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/reduceRight">MDN Array#reduceRight</a></p>
 
@@ -417,9 +441,12 @@ shuffle(arr); // ['b', 'd', 'e', 'c', 'a']
 
 <h2>some(arr, callback, [thisObj]):Array <a href="#some" id="some" class="deep-link">#</a></h2>
 
-<p>Crossbrowser ES5 <code>Array.some()</code>.</p>
+<p>Crossbrowser <code>Array.some()</code>.</p>
 
 <p>Tests whether some element in the array passes the test implemented by the provided function.</p>
+
+<p>It differs from ES5 since it will also loop over sparse items in the array to
+normalize the behavior across browsers (avoid inconsistencies).</p>
 
 <p>more info at <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/some">MDN Array#some</a></p>
 
