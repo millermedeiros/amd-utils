@@ -58,6 +58,7 @@
 <li><a href="#union">union()</a></li>
 <li><a href="#unique">unique()</a></li>
 <li><a href="#xor">xor()</a></li>
+<li><a href="#zip">zip()</a></li>
 </ul>
 
 <h2>append(arr1, arr2):Array <a href="#append" id="append" class="deep-link">#</a></h2>
@@ -542,6 +543,20 @@ console.log(foo); // [1, 2, 3, 4];
 var a = ['a', 'b', 1];
 var b = ['c', 1];
 xor(a, b); // ['a', 'b', 'c']
+</pre>
+
+<h2>zip(...arrs):Array <a href="#zip" id="zip" class="deep-link">#</a></h2>
+
+<p>Groups the elements of each array at their corresponding indexes.</p>
+
+<p>Useful for separate data sources that are coordinated through matching array
+indexes. For a matrix of nested arrays, <code>zip.apply(...)</code> can transpose the
+matrix in a similar fashion.</p>
+
+<pre class="brush:js">
+
+// [['moe', 30, true], ['larry', 40, false], ['curly', 50, false]]
+zip(['moe', 'larry', 'curly'], [30, 40, 50], [true, false, false]);
 </pre>
 
 <hr />
