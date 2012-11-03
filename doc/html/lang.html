@@ -15,6 +15,7 @@
 <ul id="topnav">
     <li><a href="index.html">Index</a></li>
     <li><a href="#toc">TOC</a></li>
+    <li><a id="inject-link" href="#/inject" title="Inject modules into a 'utils' object on the global scope so you can use the browser console to test them.">Inject Module</a></li>
 </ul>
 <h1>amd-utils / lang</h1>
 
@@ -33,8 +34,10 @@
 <li><a href="#isBoolean">isBoolean()</a></li>
 <li><a href="#isDate">isDate()</a></li>
 <li><a href="#isEmpty">isEmpty()</a></li>
+<li><a href="#isFinite">isFinite()</a></li>
 <li><a href="#isFunction">isFunction()</a></li>
 <li><a href="#isKind">isKind()</a></li>
+<li><a href="#isNaN">isNaN()</a></li>
 <li><a href="#isNull">isNull()</a></li>
 <li><a href="#isNumber">isNumber()</a></li>
 <li><a href="#isObject">isObject()</a></li>
@@ -187,6 +190,13 @@ isEmpty({});         // true
 isEmpty({a:1, b:2}); // false
 </pre>
 
+<h2>isFinite(val):Boolean <a href="#isFinite" id="isFinite" class="deep-link">#</a></h2>
+
+<p>Checks if value is Finite.</p>
+
+<p>Note: This is not the same as native <code>isFinite</code>, which will return <code>true</code> for
+booleans and empty strings. See <a href='http://es5.github.com/#x15.1.2.5'>http://es5.github.com/#x15.1.2.5</a>.</p>
+
 <h2>isFunction(val):Boolean <a href="#isFunction" id="isFunction" class="deep-link">#</a></h2>
 
 <p>If value is a Function.</p>
@@ -198,6 +208,13 @@ isEmpty({a:1, b:2}); // false
 <p>Favor the other methods since strings are commonly mistyped and also because
 some "kinds" can only be accurately checked by using other methods (e.g.
 <code>Arguments</code>), some of the other checks are also faster.</p>
+
+<h2>isNaN(val):Boolean <a href="#isNaN" id="isNaN" class="deep-link">#</a></h2>
+
+<p>Check if value is <code>NaN</code>.</p>
+
+<p>Note: This is not the same as native <code>isNaN</code>, which will return <code>true</code> for
+<code>undefined</code> and other values. See <a href="http://es5.github.com/#x15.1.2.4">ES5 isNaN</a></p>
 
 <h2>isNull(val):Boolean <a href="#isNull" id="isNull" class="deep-link">#</a></h2>
 

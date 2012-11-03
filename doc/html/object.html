@@ -15,6 +15,7 @@
 <ul id="topnav">
     <li><a href="index.html">Index</a></li>
     <li><a href="#toc">TOC</a></li>
+    <li><a id="inject-link" href="#/inject" title="Inject modules into a 'utils' object on the global scope so you can use the browser console to test them.">Inject Module</a></li>
 </ul>
 <h1>amd-utils / object</h1>
 
@@ -91,6 +92,8 @@ filter(obj, function(v, k) { return k === 'foo'; });
 <p>It <a href="https://developer.mozilla.org/en/ECMAScript_DontEnum_attribute#JScript_DontEnum_Bug">avoids don't enum bug on IE</a>.
 It <strong>will</strong> iterate over inherited (enumerable) properties from the prototype.</p>
 
+<p>It allows exiting the iteration early by returning <code>false</code> on the callback.</p>
+
 <p>See: <a href="#forOwn"><code>forOwn()</code></a>, <a href="#keys"><code>keys()</code></a>, <a href="#values"><code>values()</code></a></p>
 
 <h3>Callback arguments</h3>
@@ -135,6 +138,8 @@ console.log(keys);   // ['foo', 'bar', 'lorem']
 
 <p>It <a href="https://developer.mozilla.org/en/ECMAScript_DontEnum_attribute#JScript_DontEnum_Bug">avoids don't enum bug on IE</a>.
 Notice that it <strong>won't</strong> iterate over properties from the prototype.</p>
+
+<p>It allows exiting the iteration early by returning <code>false</code> on the callback.</p>
 
 <p>See: <a href="#forIn"><code>forIn()</code></a>, <a href="#keys"><code>keys()</code></a>, <a href="#values"><code>values()</code></a></p>
 
