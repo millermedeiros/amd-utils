@@ -47,7 +47,7 @@
 <h2>deepMixIn(target, ...objects):Object <a href="#deepMixIn" id="deepMixIn" class="deep-link">#</a></h2>
 
 <p>Mixes objects into the target object, recursively mixing existing child objects
-also.</p>
+and arrays as well.</p>
 
 <p>Returns the target object. Like <a href="#merge"><code>merge()</code></a>, but mutates the target
 object, and does not clone child objects.</p>
@@ -55,12 +55,14 @@ object, and does not clone child objects.</p>
 <pre><code>var target = {
     foo: {
         name: "foo",
-        id: 1
+        id: 1,
+        vals: [1, 2]
     }
 };
 
-deepMixIn(target, { foo: { id: 2 } });
-console.log(target); // { foo: { name: "foo", id: 2 } }
+deepMixIn(target, { foo: { id: 2, vals: [5] } });
+// note that arrays are also merged and not replaced
+console.log(target); // { foo: { name: "foo", id: 2, vals : [5, 2] } }
 </code></pre>
 
 <p>See: <a href="#mixIn"><code>mixIn()</code></a>, <a href="#merge"><code>merge()</code></a></p>
