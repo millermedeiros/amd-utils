@@ -24,6 +24,7 @@
 <h2>Table of Contents <a href="#toc" name="toc" class="deep-link">#</a></h2>
 
 <ul>
+<li><a href="#deepMixIn">deepMixIn()</a></li>
 <li><a href="#fillIn">fillIn()</a></li>
 <li><a href="#filter">filter()</a></li>
 <li><a href="#forIn">forIn()</a></li>
@@ -42,6 +43,27 @@
 <li><a href="#size">size()</a></li>
 <li><a href="#unset">unset()</a></li>
 </ul>
+
+<h2>deepMixIn(target, ...objects):Object <a href="#deepMixIn" id="deepMixIn" class="deep-link">#</a></h2>
+
+<p>Mixes objects into the target object, recursively mixing existing child objects
+also.</p>
+
+<p>Returns the target object. Like <a href="#merge"><code>merge()</code></a>, but mutates the target
+object, and does not clone child objects.</p>
+
+<pre><code>var target = {
+    foo: {
+        name: "foo",
+        id: 1
+    }
+};
+
+deepMixIn(target, { foo: { id: 2 } });
+console.log(target); // { foo: { name: "foo", id: 2 } }
+</code></pre>
+
+<p>See: <a href="#mixIn"><code>mixIn()</code></a>, <a href="#merge"><code>merge()</code></a></p>
 
 <h2>fillIn(obj, ...default):Object <a href="#fillIn" id="fillIn" class="deep-link">#</a></h2>
 
