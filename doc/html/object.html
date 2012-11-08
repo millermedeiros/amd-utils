@@ -46,10 +46,11 @@
 
 <h2>deepMixIn(target, ...objects):Object <a href="#deepMixIn" id="deepMixIn" class="deep-link">#</a></h2>
 
-<p>Mixes objects into the target object, recursively mixing child objects also.</p>
+<p>Mixes objects into the target object, recursively mixing existing child objects
+also.</p>
 
 <p>Returns the target object. Like <a href="#merge"><code>merge()</code></a>, but mutates the target
-object.</p>
+object, and does not clone child objects.</p>
 
 <pre><code>var target = {
     foo: {
