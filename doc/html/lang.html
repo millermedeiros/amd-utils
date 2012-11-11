@@ -209,6 +209,15 @@ booleans and empty strings. See <a href='http://es5.github.com/#x15.1.2.5'>http:
 some "kinds" can only be accurately checked by using other methods (e.g.
 <code>Arguments</code>), some of the other checks are also faster.</p>
 
+<pre class="brush:js">
+
+isKind([1,2], 'Array'); // true
+isKind(3, 'Array');     // false
+isKind(3, 'Number');    // true
+</pre>
+
+<p>See: <a href="#kindOf"><code>kindOf()</code></a></p>
+
 <h2>isNaN(val):Boolean <a href="#isNaN" id="isNaN" class="deep-link">#</a></h2>
 
 <p>Check if value is <code>NaN</code>.</p>
@@ -244,6 +253,15 @@ some "kinds" can only be accurately checked by using other methods (e.g.
 
 <p>Gets kind of value (e.g. "String", "Number", "RegExp", "Null", "Date").
 Used internally by <code>isKind()</code> and most of the other <em>isSomething</em> checks.</p>
+
+<pre class="brush:js">
+
+kindOf([1,2]); // "Array"
+kindOf('foo'); // "String"
+kindOf(3);     // "Number"
+</pre>
+
+<p>See: <a href="#isKind"><code>isKind()</code></a></p>
 
 <h2>toArray(val):Array <a href="#toArray" id="toArray" class="deep-link">#</a></h2>
 
