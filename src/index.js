@@ -4,17 +4,17 @@ define(function(require){
 //run `node build` instead
 return {
     'array' : require('./array'),
-    'collection' : require('./collection'),
-    'financial' : require('./financial'),
     'function' : require('./function'),
-    'lang' : require('./lang'),
-    'math' : require('./math'),
-    'number' : require('./number'),
-    'object' : require('./object'),
-    'queryString' : require('./queryString'),
-    'random' : require('./random'),
     'string' : require('./string'),
-    'time' : require('./time')
+    'object' : require('./object'),
+    'lang' : require('./lang'),
+    'financial' : require('./financial'),
+    'collection' : require('./collection'),
+    'queryString' : require('./queryString'),
+    'number' : require('./number'),
+    'time' : require('./time'),
+    'math' : require('./math'),
+    'random' : require('./random')
 };
 
 });

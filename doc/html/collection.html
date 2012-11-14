@@ -22,35 +22,230 @@
 <p>Methods for dealing with collections (Array or Objects).</p>
 
 <div style="background-color:#fdd; padding:2em; border:2px solid #f00"><strong>IMPORTANT:</strong>
-This package isn't <em>stable</em> we are still discussing what is the proper
+This package isn't <em>stable</em>. We are still discussing what is the proper
 behavior. (see <a href="https://github.com/millermedeiros/amd-utils/issues/93">#93</a>)</div>
 
 <h2>Table of Contents <a href="#toc" name="toc" class="deep-link">#</a></h2>
 
 <ul>
+<li><a href="#contains">contains()</a></li>
+<li><a href="#every">every()</a></li>
 <li><a href="#filter">filter()</a></li>
+<li><a href="#find">find()</a></li>
 <li><a href="#forEach">forEach()</a></li>
 <li><a href="#map">map()</a></li>
+<li><a href="#max">max()</a></li>
+<li><a href="#min">min()</a></li>
+<li><a href="#pluck">pluck()</a></li>
+<li><a href="#reduce">reduce()</a></li>
+<li><a href="#reject">reject()</a></li>
+<li><a href="#size">size()</a></li>
+<li><a href="#some">some()</a></li>
 </ul>
 
-<h2>filter(target, callback, [thisObj]):* <a href="#filter" id="filter" class="deep-link">#</a></h2>
+<h2>contains(list, value):Boolean <a href="#contains" id="contains" class="deep-link">#</a></h2>
+
+<p>Checks if collection contains value.</p>
+
+<pre class="brush:js">
+
+contains({a: 1, b: 2, c: 'bar'}, 2); // true
+contains([1, 2, 3], 'foo');  // false
+</pre>
+
+<p>See: <a href="array.html#contains">array/contains</a>, <a href="object.html#contains">object/contains</a></p>
+
+<h2>every(list, callback, [thisObj]):Boolean <a href="#every" id="every" class="deep-link">#</a></h2>
+
+<p>Tests whether all values in the collection pass the test implemented by the
+provided callback.</p>
+
+<pre class="brush:js">
+
+var obj = {
+    a: 1,
+    b: 2,
+    c: 3,
+    d: 'string'
+};
+
+every(obj, isNumber); // false
+</pre>
+
+<p>See: <a href="array.html#every">array/every</a>, <a href="object.html#every">object/every</a></p>
+
+<h2>filter(list, callback, [thisObj]):* <a href="#filter" id="filter" class="deep-link">#</a></h2>
 
 <p>Filter collection properties.</p>
 
 <p>See: <a href="array.html#filter">array/filter</a>, <a href="object.html#filter">object/filter</a></p>
 
-<h2>forEach(target, callback, [thisObj]):void <a href="#forEach" id="forEach" class="deep-link">#</a></h2>
+<h2>find(list, callback, [thisObj]) <a href="#find" id="find" class="deep-link">#</a></h2>
+
+<p>Loops through all the values in the collection and returns the first one that
+passes a truth test (callback).</p>
+
+<pre class="brush:js">
+
+find({a: 'foo', b: 12}, isString); // 'foo'
+find(['foo', 12], isNumber); // 12
+</pre>
+
+<p>See: <a href="array.html#find">array/find</a>, <a href="object.html#find">object/find</a></p>
+
+<h2>forEach(list, callback, [thisObj]):void <a href="#forEach" id="forEach" class="deep-link">#</a></h2>
 
 <p>Loop through all values of the collection.</p>
 
 <p>See: <a href="array.html#forEach">array/forEach</a>, <a href="object.html#forOwn">object/forOwn</a></p>
 
-<h2>map(target, callback, [thisObj]):* <a href="#map" id="map" class="deep-link">#</a></h2>
+<h2>map(list, callback, [thisObj]):* <a href="#map" id="map" class="deep-link">#</a></h2>
 
 <p>Returns a new collection where the properties values are the result of calling
 the callback for each property in the original collection.</p>
 
 <p>See: <a href="array.html#map">array/map</a>, <a href="object.html#map">object/map</a></p>
+
+<h2>max(list[, iterator]):* <a href="#max" id="max" class="deep-link">#</a></h2>
+
+<p>Returns maximum value inside collection or use a custom iterator to define how
+items should be compared.</p>
+
+<p>See: <a href="#min"><code>min()</code></a>, <a href="array.html#max">array/max</a>, <a href="object.html#max">object/max</a></p>
+
+<pre class="brush:js">
+
+max({a: 100, b: 2, c: 1, d: 3, e: 200}); // 200
+max(['foo', 'lorem', 'amet'], function(val){
+    return val.length;
+}); // 'lorem'
+</pre>
+
+<h2>min(list[, iterator]):* <a href="#min" id="min" class="deep-link">#</a></h2>
+
+<p>Returns minimum value inside collection or use a custom iterator to define how
+items should be compared.</p>
+
+<p>See: <a href="#max"><code>max()</code></a>, <a href="array.html#min">array/min</a>, <a href="object.html#min">object/min</a></p>
+
+<pre class="brush:js">
+
+min([10, 2, 7]); // 2
+min({a: 'foo', b: 'lorem', c: 'amet'}, function(val){
+    return val.length;
+}); // 'foo'
+</pre>
+
+<h2>pluck(list, propName):Array <a href="#pluck" id="pluck" class="deep-link">#</a></h2>
+
+<p>Extract a list of property values.</p>
+
+<pre class="brush:js">
+
+var users = [
+    {
+        name : 'John',
+        age : 21
+    },
+    {
+        name : 'Jane',
+        age : 27
+    }
+];
+
+pluck(users, 'name'); // ["John", "Jane"]
+pluck(users, 'age'); // [21, 27]
+
+users = {
+    first: {
+        name : 'John',
+        age : 21
+    },
+    second: {
+        name : 'Mary',
+        age : 25
+    }
+};
+
+pluck(users, 'name'); // ['John', 'Mary']
+</pre>
+
+<p>See: <a href="array.html#pluck">array/pluck</a>, <a href="object.html#pluck">object/pluck</a></p>
+
+<h2>reduce(list, callback, initial, [thisObj]):* <a href="#reduce" id="reduce" class="deep-link">#</a></h2>
+
+<p>Apply a function against an accumulator and each value in the collection as to
+reduce it to a single value.</p>
+
+<pre class="brush:js">
+
+var obj = {a: 1, b: 2, c: 3, d: 4};
+
+function sum(prev, cur, key, list) {
+    compare1.push(prev);
+    return prev + cur;
+}
+
+reduce(obj, sum); // 10
+</pre>
+
+<p>See: <a href="array.html#reduce">array/reduce</a>, <a href="object.html#reduce">object/reduce</a></p>
+
+<h2>reject(list, fn, thisObj):Array <a href="#reject" id="reject" class="deep-link">#</a></h2>
+
+<p>Creates a new array with all the elements that do <strong>not</strong> pass the truth test.
+Opposite of <a href="#filter"><code>filter()</code></a>.</p>
+
+<h3>Example</h3>
+
+<pre class="brush:js">
+
+var numbers = [1, 2, 3, 4, 5, 6];
+reject(numbers, function(x) { return (x % 2) !== 0; }); // [2, 4, 6]
+
+var obj = {a: 1, b: 2, c: 3, d: 4, e: 5};
+reject(obj, function(x) { return (x % 2) !== 0; }); // {b: 2, d: 4}
+</pre>
+
+<p>See: <a href="array.html#reject">array/reject</a>, <a href="object.html#reject">object/reject</a></p>
+
+<h2>size(list):Number <a href="#size" id="size" class="deep-link">#</a></h2>
+
+<p>Returns the number of values in the collection.</p>
+
+<pre class="brush:js">
+
+var obj = {
+    foo : 1,
+    bar : 2,
+    lorem : 3
+};
+size(obj); // 3
+
+size([1,2,3]); // 3
+</pre>
+
+<p>See: <a href="object.html#size">object/size</a></p>
+
+<h2>some(list, callback, [thisObj]):Boolean <a href="#some" id="some" class="deep-link">#</a></h2>
+
+<p>Tests whether any values in the collection pass the test implemented by the
+provided callback.</p>
+
+<pre class="brush:js">
+
+var obj = {
+    a: 1,
+    b: 2,
+    c: 3,
+    d: 'string'
+};
+
+some(obj, isNumber); // true
+some([1, 2, 3], isString) // false
+</pre>
+
+<p>See: <a href="array.html#some">array/some</a>, <a href="object.html#some">object/some</a></p>
                 <hr />
                 <small>Documentation generated by <a href="https://github.com/millermedeiros/mdoc">mdoc</a>.</small>
             </div>

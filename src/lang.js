@@ -3,28 +3,28 @@ define(function(require){
 //automatically generated, do not edit!
 //run `node build` instead
 return {
-    'clone' : require('./lang/clone'),
-    'createObject' : require('./lang/createObject'),
-    'ctorApply' : require('./lang/ctorApply'),
-    'defaults' : require('./lang/defaults'),
-    'inheritPrototype' : require('./lang/inheritPrototype'),
-    'isArguments' : require('./lang/isArguments'),
-    'isArray' : require('./lang/isArray'),
-    'isBoolean' : require('./lang/isBoolean'),
-    'isDate' : require('./lang/isDate'),
-    'isEmpty' : require('./lang/isEmpty'),
-    'isFinite' : require('./lang/isFinite'),
-    'isFunction' : require('./lang/isFunction'),
-    'isKind' : require('./lang/isKind'),
     'isNaN' : require('./lang/isNaN'),
-    'isNull' : require('./lang/isNull'),
-    'isNumber' : require('./lang/isNumber'),
-    'isObject' : require('./lang/isObject'),
-    'isRegExp' : require('./lang/isRegExp'),
+    'defaults' : require('./lang/defaults'),
+    'isArray' : require('./lang/isArray'),
     'isString' : require('./lang/isString'),
-    'isUndefined' : require('./lang/isUndefined'),
+    'isFinite' : require('./lang/isFinite'),
+    'clone' : require('./lang/clone'),
+    'isFunction' : require('./lang/isFunction'),
+    'isArguments' : require('./lang/isArguments'),
     'kindOf' : require('./lang/kindOf'),
-    'toArray' : require('./lang/toArray')
+    'isNumber' : require('./lang/isNumber'),
+    'toArray' : require('./lang/toArray'),
+    'isEmpty' : require('./lang/isEmpty'),
+    'createObject' : require('./lang/createObject'),
+    'isRegExp' : require('./lang/isRegExp'),
+    'isBoolean' : require('./lang/isBoolean'),
+    'isUndefined' : require('./lang/isUndefined'),
+    'isObject' : require('./lang/isObject'),
+    'isNull' : require('./lang/isNull'),
+    'ctorApply' : require('./lang/ctorApply'),
+    'inheritPrototype' : require('./lang/inheritPrototype'),
+    'isKind' : require('./lang/isKind'),
+    'isDate' : require('./lang/isDate')
 };
 
 });
