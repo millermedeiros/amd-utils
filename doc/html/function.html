@@ -26,6 +26,7 @@
 <ul>
 <li><a href="#bind">bind()</a></li>
 <li><a href="#compose">compose()</a></li>
+<li><a href="#curry">curry()</a></li>
 <li><a href="#func">func()</a></li>
 <li><a href="#prop">prop()</a></li>
 <li><a href="#series">series()</a></li>
@@ -43,6 +44,8 @@
 <li><code>[...args]</code> (*)    : Arguments (0...n arguments)</li>
 </ol>
 
+<p>See: <a href="#curry"><code>curry()</code></a></p>
+
 <h2>compose(...fn):Function <a href="#compose" id="compose" class="deep-link">#</a></h2>
 
 <p>Returns the composition of a list of functions, where each function consumes
@@ -59,6 +62,29 @@ map([1, 2, 3], compose(add2, multi2)); // [4, 6, 8]
 map([1, 2, 3], function(x){
     return add2( multi2(x) );
 });
+</pre>
+
+<h2>curry(fn, [...args]):Function <a href="#curry" id="curry" class="deep-link">#</a></h2>
+
+<p>Return a partially applied function supplying default arguments.</p>
+
+<p>This method is similar to <a href="#bind"><code>bind</code></a>, except it does not alter the this
+binding.</p>
+
+<h3>Arguments</h3>
+
+<ol>
+<li><code>fn</code> (Function)    : Target Function</li>
+<li><code>[...args]</code> (*)    : Arguments (0...n arguments)</li>
+</ol>
+
+<p>See: <a href="#bind"><code>bind()</code></a></p>
+
+<pre class="brush:js">
+
+function add(a, b){ return a + b }
+var add10 = curry(add, 10);
+console.log( add10(2) ); // 12
 </pre>
 
 <h2>func(name):Function <a href="#func" id="func" class="deep-link">#</a></h2>
