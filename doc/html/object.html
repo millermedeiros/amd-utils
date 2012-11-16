@@ -24,9 +24,12 @@
 <h2>Table of Contents <a href="#toc" name="toc" class="deep-link">#</a></h2>
 
 <ul>
+<li><a href="#contains">contains()</a></li>
 <li><a href="#deepMixIn">deepMixIn()</a></li>
+<li><a href="#every">every()</a></li>
 <li><a href="#fillIn">fillIn()</a></li>
 <li><a href="#filter">filter()</a></li>
+<li><a href="#find">find()</a></li>
 <li><a href="#forIn">forIn()</a></li>
 <li><a href="#forOwn">forOwn()</a></li>
 <li><a href="#get">get()</a></li>
@@ -35,14 +38,36 @@
 <li><a href="#keys">keys()</a></li>
 <li><a href="#map">map()</a></li>
 <li><a href="#merge">merge()</a></li>
+<li><a href="#max">max()</a></li>
+<li><a href="#min">min()</a></li>
 <li><a href="#mixIn">mixIn()</a></li>
 <li><a href="#namespace">namespace()</a></li>
 <li><a href="#pick">pick()</a></li>
+<li><a href="#pluck">pluck()</a></li>
+<li><a href="#reduce">reduce()</a></li>
+<li><a href="#reject">reject()</a></li>
 <li><a href="#values">values()</a></li>
 <li><a href="#set">set()</a></li>
 <li><a href="#size">size()</a></li>
+<li><a href="#some">some()</a></li>
 <li><a href="#unset">unset()</a></li>
 </ul>
+
+<h2>contains(obj, value):Boolean <a href="#contains" id="contains" class="deep-link">#</a></h2>
+
+<p>Similar to <a href="array.html#contains">Array/contains</a>. Checks if Object contains
+value.</p>
+
+<pre class="brush:js">
+
+var obj = {
+    a: 1,
+    b: 2,
+    c: 'bar'
+};
+contains(obj, 2);      // true
+contains(obj, 'foo');  // false
+</pre>
 
 <h2>deepMixIn(target, ...objects):Object <a href="#deepMixIn" id="deepMixIn" class="deep-link">#</a></h2>
 
@@ -66,6 +91,23 @@ console.log(target); // { foo: { name: "foo", id: 2, vals : [5, 2] } }
 </code></pre>
 
 <p>See: <a href="#mixIn"><code>mixIn()</code></a>, <a href="#merge"><code>merge()</code></a></p>
+
+<h2>every(obj, callback, [thisObj]):Boolean <a href="#every" id="every" class="deep-link">#</a></h2>
+
+<p>Similar to <a href="array.html#every">Array/every</a>. Tests whether all properties in the
+object pass the test implemented by the provided callback.</p>
+
+<pre class="brush:js">
+
+var obj = {
+    a: 1,
+    b: 2,
+    c: 3,
+    d: 'string'
+};
+
+every(obj, isNumber); // false
+</pre>
 
 <h2>fillIn(obj, ...default):Object <a href="#fillIn" id="fillIn" class="deep-link">#</a></h2>
 
@@ -106,6 +148,23 @@ filter(obj, function(v) { return value.length > 5; });
 
 // returns { foo: 'value' }
 filter(obj, function(v, k) { return k === 'foo'; });
+</pre>
+
+<h2>find(obj, callback, [thisObj]) <a href="#find" id="find" class="deep-link">#</a></h2>
+
+<p>Loops through all the properties in the Object and returns the first one that
+passes a truth test (callback), similar to <a href="array.html#find">Array/find</a>.
+Unlike Array/find, order of iteration is not guaranteed.</p>
+
+<pre class="brush:js">
+
+var obj = {
+    a: 'foo',
+    b: 12
+};
+
+find(obj, isString); // 'foo'
+find(obj, isNumber); // 12
 </pre>
 
 <h2>forIn(obj, callback[, thisObj]) <a href="#forIn" id="forIn" class="deep-link">#</a></h2>
@@ -332,6 +391,36 @@ merge(obj1, obj2); // {a: {b : 2, c : 1, d : {e : 1, f : 'yeah'}}}
 
 <p>See: <a href="#fillIn"><code>fillIn()</code></a>, <a href="#mixIn"><code>mixIn()</code></a></p>
 
+<h2>max(obj[, iterator]):* <a href="#max" id="max" class="deep-link">#</a></h2>
+
+<p>Returns maximum value inside object or use a custom iterator to define how
+items should be compared. Similar to <a href="array.html#max">Array/max</a>.</p>
+
+<p>See: <a href="#min"><code>min()</code></a></p>
+
+<pre class="brush:js">
+
+max({a: 100, b: 2, c: 1, d: 3, e: 200}); // 200
+max({a: 'foo', b: 'lorem', c: 'amet'}, function(val){
+    return val.length;
+}); // 'lorem'
+</pre>
+
+<h2>min(obj[, iterator]):* <a href="#min" id="min" class="deep-link">#</a></h2>
+
+<p>Returns minimum value inside object or use a custom iterator to define how
+items should be compared. Similar to <a href="array.html#min">Array/min</a>.</p>
+
+<p>See: <a href="#max"><code>max()</code></a></p>
+
+<pre class="brush:js">
+
+min({a: 100, b: 2, c: 1, d: 3, e: 200}); // 1
+min({a: 'foo', b: 'lorem', c: 'amet'}, function(val){
+    return val.length;
+}); // 'foo'
+</pre>
+
 <h2>mixIn(target, ...objects):Object <a href="#mixIn" id="mixIn" class="deep-link">#</a></h2>
 
 <p>Combine properties from all the objects into first one.</p>
@@ -399,6 +488,63 @@ pick(user, keys); // {firstName:"John", dob: "1985/07/23"}
 pick(user, 'firstName', 'lastName'); // {firstName:"John", lastName: "Doe"}
 </pre>
 
+<h2>pluck(obj, propName):Object <a href="#pluck" id="pluck" class="deep-link">#</a></h2>
+
+<p>Extract an object containing property values with keys as they appear in the
+passed object.</p>
+
+<pre class="brush:js">
+
+var users = {
+    first: {
+        name : 'John',
+        age : 21
+    },
+    second: {
+        name : 'Mary',
+        age : 25
+    }
+};
+
+pluck(users, 'name'); // {first: 'John', second: 'Mary'} );
+pluck(users, 'age');  // {first: 21, second: 25} );
+</pre>
+
+<h2>reduce(obj, callback, initial, [thisObj]):* <a href="#reduce" id="reduce" class="deep-link">#</a></h2>
+
+<p>Similar to <a href="array.html#reduce">Array/reduce</a>.</p>
+
+<p>Apply a function against an accumulator and each property of the object (order
+is undefined) as to reduce it to a single value.</p>
+
+<pre class="brush:js">
+
+var obj = {a: 1, b: 2, c: 3, d: 4};
+
+function sum(prev, cur, key, list) {
+    compare1.push(prev);
+    return prev + cur;
+}
+
+reduce(obj, sum); // 10
+</pre>
+
+<h2>reject(obj, callback, thisObj):Object <a href="#reject" id="reject" class="deep-link">#</a></h2>
+
+<p>Returns a new object containing all properties where <code>callback</code> returns true,
+similar to <a href="array.html#reject">Array/reject</a>. It does not use properties from
+the object's prototype. Opposite of <a href="#filter"><code>filter()</code></a>.</p>
+
+<p>See <a href="#filter"><code>filter()</code></a></p>
+
+<h3>Example</h3>
+
+<pre class="brush:js">
+
+var obj = {a: 1, b: 2, c: 3, d: 4, e: 5};
+reject(obj, function(x) { return (x % 2) !== 0; }); // {b: 2, d: 4}
+</pre>
+
 <h2>values(obj):Array <a href="#values" id="values" class="deep-link">#</a></h2>
 
 <p>Returns an array of all own enumerable properties values found upon a given object.</p>
@@ -447,6 +593,23 @@ var obj = {
     lorem : 3
 };
 size(obj); // 3
+</pre>
+
+<h2>some(obj, callback, [thisObj]):Boolean <a href="#some" id="some" class="deep-link">#</a></h2>
+
+<p>Similar to <a href="array.html#some">Array/some</a>. Tests whether any properties in the
+object pass the test implemented by the provided callback.</p>
+
+<pre class="brush:js">
+
+var obj = {
+    a: 1,
+    b: 2,
+    c: 3,
+    d: 'string'
+};
+
+some(obj, isNumber); // true
 </pre>
 
 <h2>unset(obj, propName):Boolean <a href="#unset" id="unset" class="deep-link">#</a></h2>
