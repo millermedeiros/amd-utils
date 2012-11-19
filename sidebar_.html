@@ -194,19 +194,69 @@ Does not allow duplicates and is case and type sensitive.</span>
             <h3 class="toc-mod-title"><a href="collection.html">collection</a></h3>
             <div class="toc-list">
                 
+                <a class="toc-item" href="collection.html#contains">
+                    <h4>contains(list, value):Boolean</h4>
+                    <span class="desc">Checks if collection contains value.</span>
+                </a>
+                
+                <a class="toc-item" href="collection.html#every">
+                    <h4>every(list, callback, [thisObj]):Boolean</h4>
+                    <span class="desc">Tests whether all values in the collection pass the test implemented by the provided callback.</span>
+                </a>
+                
                 <a class="toc-item" href="collection.html#filter">
-                    <h4>filter(target, callback, [thisObj]):*</h4>
+                    <h4>filter(list, callback, [thisObj]):Array</h4>
                     <span class="desc">Filter collection properties.</span>
                 </a>
                 
+                <a class="toc-item" href="collection.html#find">
+                    <h4>find(list, callback, [thisObj]):*</h4>
+                    <span class="desc">Loops through all the values in the collection and returns the first one that passes a truth test (callback).</span>
+                </a>
+                
                 <a class="toc-item" href="collection.html#forEach">
-                    <h4>forEach(target, callback, [thisObj]):void</h4>
+                    <h4>forEach(list, callback, [thisObj])</h4>
                     <span class="desc">Loop through all values of the collection.</span>
                 </a>
                 
                 <a class="toc-item" href="collection.html#map">
-                    <h4>map(target, callback, [thisObj]):*</h4>
+                    <h4>map(list, callback, [thisObj]):Array</h4>
                     <span class="desc">Returns a new collection where the properties values are the result of calling the callback for each property in the original collection.</span>
+                </a>
+                
+                <a class="toc-item" href="collection.html#max">
+                    <h4>max(list, [iterator]):*</h4>
+                    <span class="desc">Returns maximum value inside collection or use a custom iterator to define how items should be compared.</span>
+                </a>
+                
+                <a class="toc-item" href="collection.html#min">
+                    <h4>min(list, [iterator]):*</h4>
+                    <span class="desc">Returns minimum value inside collection or use a custom iterator to define how items should be compared.</span>
+                </a>
+                
+                <a class="toc-item" href="collection.html#pluck">
+                    <h4>pluck(list, propName):Array</h4>
+                    <span class="desc">Extract a list of property values.</span>
+                </a>
+                
+                <a class="toc-item" href="collection.html#reduce">
+                    <h4>reduce(list, callback, initial, [thisObj]):*</h4>
+                    <span class="desc">Apply a function against an accumulator and each value in the collection as to reduce it to a single value.</span>
+                </a>
+                
+                <a class="toc-item" href="collection.html#reject">
+                    <h4>reject(list, fn, [thisObj]):Array</h4>
+                    <span class="desc">Creates a new array with all the elements that do <strong>not</strong> pass the truth test. Opposite of <code>filter()</code>.</span>
+                </a>
+                
+                <a class="toc-item" href="collection.html#size">
+                    <h4>size(list):Number</h4>
+                    <span class="desc">Returns the number of values in the collection.</span>
+                </a>
+                
+                <a class="toc-item" href="collection.html#some">
+                    <h4>some(list, callback, [thisObj]):Boolean</h4>
+                    <span class="desc">Tests whether any values in the collection pass the test implemented by the provided callback.</span>
                 </a>
                 
             </div>
@@ -522,9 +572,19 @@ functions <code>f()</code>, <code>g()</code>, and <code>h()</code> produces <cod
             <h3 class="toc-mod-title"><a href="object.html">object</a></h3>
             <div class="toc-list">
                 
+                <a class="toc-item" href="object.html#contains">
+                    <h4>contains(obj, value):Boolean</h4>
+                    <span class="desc">Similar to Array/contains. Checks if Object contains value.</span>
+                </a>
+                
                 <a class="toc-item" href="object.html#deepMixIn">
                     <h4>deepMixIn(target, ...objects):Object</h4>
                     <span class="desc">Mixes objects into the target object, recursively mixing existing child objects and arrays as well.</span>
+                </a>
+                
+                <a class="toc-item" href="object.html#every">
+                    <h4>every(obj, callback, [thisObj]):Boolean</h4>
+                    <span class="desc">Similar to Array/every. Tests whether all properties in the object pass the test implemented by the provided callback.</span>
                 </a>
                 
                 <a class="toc-item" href="object.html#fillIn">
@@ -536,6 +596,12 @@ functions <code>f()</code>, <code>g()</code>, and <code>h()</code> produces <cod
                     <h4>filter(obj, callback, [thisObj])</h4>
                     <span class="desc">Returns a new object containing all properties where <code>callback</code> returns true, similar to Array/filter. It does not use properties from the object's
 prototype.</span>
+                </a>
+                
+                <a class="toc-item" href="object.html#find">
+                    <h4>find(obj, callback, [thisObj])</h4>
+                    <span class="desc">Loops through all the properties in the Object and returns the first one that passes a truth test (callback), similar to Array/find.
+Unlike Array/find, order of iteration is not guaranteed.</span>
                 </a>
                 
                 <a class="toc-item" href="object.html#forIn">
@@ -580,6 +646,16 @@ inherited by the prototype.</span>
 affect source objects.</span>
                 </a>
                 
+                <a class="toc-item" href="object.html#max">
+                    <h4>max(obj[, iterator]):*</h4>
+                    <span class="desc">Returns maximum value inside object or use a custom iterator to define how items should be compared. Similar to Array/max.</span>
+                </a>
+                
+                <a class="toc-item" href="object.html#min">
+                    <h4>min(obj[, iterator]):*</h4>
+                    <span class="desc">Returns minimum value inside object or use a custom iterator to define how items should be compared. Similar to Array/min.</span>
+                </a>
+                
                 <a class="toc-item" href="object.html#mixIn">
                     <h4>mixIn(target, ...objects):Object</h4>
                     <span class="desc">Combine properties from all the objects into first one.</span>
@@ -595,6 +671,22 @@ affect source objects.</span>
                     <span class="desc">Return a copy of the object that contains only the whitelisted keys.</span>
                 </a>
                 
+                <a class="toc-item" href="object.html#pluck">
+                    <h4>pluck(obj, propName):Object</h4>
+                    <span class="desc">Extract an object containing property values with keys as they appear in the passed object.</span>
+                </a>
+                
+                <a class="toc-item" href="object.html#reduce">
+                    <h4>reduce(obj, callback, initial, [thisObj]):*</h4>
+                    <span class="desc">Similar to Array/reduce.</span>
+                </a>
+                
+                <a class="toc-item" href="object.html#reject">
+                    <h4>reject(obj, callback, thisObj):Object</h4>
+                    <span class="desc">Returns a new object containing all properties where <code>callback</code> returns true, similar to Array/reject. It does not use properties from
+the object's prototype. Opposite of <code>filter()</code>.</span>
+                </a>
+                
                 <a class="toc-item" href="object.html#values">
                     <h4>values(obj):Array</h4>
                     <span class="desc">Returns an array of all own enumerable properties values found upon a given object.</span>
@@ -608,6 +700,11 @@ affect source objects.</span>
                 <a class="toc-item" href="object.html#size">
                     <h4>size(obj):Number</h4>
                     <span class="desc">Returns the count of own enumerable properties found upon a given object.</span>
+                </a>
+                
+                <a class="toc-item" href="object.html#some">
+                    <h4>some(obj, callback, [thisObj]):Boolean</h4>
+                    <span class="desc">Similar to Array/some. Tests whether any properties in the object pass the test implemented by the provided callback.</span>
                 </a>
                 
                 <a class="toc-item" href="object.html#unset">
