@@ -21,10 +21,6 @@
 
 <p>Methods for dealing with collections (Array or Objects).</p>
 
-<div style="background-color:#fdd; padding:2em; border:2px solid #f00"><strong>IMPORTANT:</strong>
-This package isn't <em>stable</em>. We are still discussing what is the proper
-behavior. (see <a href="https://github.com/millermedeiros/amd-utils/issues/93">#93</a>)</div>
-
 <h2>Table of Contents <a href="#toc" name="toc" class="deep-link">#</a></h2>
 
 <ul>
@@ -74,16 +70,19 @@ every(obj, isNumber); // false
 
 <p>See: <a href="array.html#every">array/every</a>, <a href="object.html#every">object/every</a></p>
 
-<h2>filter(list, callback, [thisObj]):* <a href="#filter" id="filter" class="deep-link">#</a></h2>
+<h2>filter(list, callback, [thisObj]):Array <a href="#filter" id="filter" class="deep-link">#</a></h2>
 
 <p>Filter collection properties.</p>
 
 <p>See: <a href="array.html#filter">array/filter</a>, <a href="object.html#filter">object/filter</a></p>
 
-<h2>find(list, callback, [thisObj]) <a href="#find" id="find" class="deep-link">#</a></h2>
+<h2>find(list, callback, [thisObj]):* <a href="#find" id="find" class="deep-link">#</a></h2>
 
 <p>Loops through all the values in the collection and returns the first one that
 passes a truth test (callback).</p>
+
+<p><strong>Important:</strong> loop order over objects properties isn't guaranteed to be the
+same on all environments.</p>
 
 <pre class="brush:js">
 
@@ -93,20 +92,20 @@ find(['foo', 12], isNumber); // 12
 
 <p>See: <a href="array.html#find">array/find</a>, <a href="object.html#find">object/find</a></p>
 
-<h2>forEach(list, callback, [thisObj]):void <a href="#forEach" id="forEach" class="deep-link">#</a></h2>
+<h2>forEach(list, callback, [thisObj]) <a href="#forEach" id="forEach" class="deep-link">#</a></h2>
 
 <p>Loop through all values of the collection.</p>
 
 <p>See: <a href="array.html#forEach">array/forEach</a>, <a href="object.html#forOwn">object/forOwn</a></p>
 
-<h2>map(list, callback, [thisObj]):* <a href="#map" id="map" class="deep-link">#</a></h2>
+<h2>map(list, callback, [thisObj]):Array <a href="#map" id="map" class="deep-link">#</a></h2>
 
 <p>Returns a new collection where the properties values are the result of calling
 the callback for each property in the original collection.</p>
 
 <p>See: <a href="array.html#map">array/map</a>, <a href="object.html#map">object/map</a></p>
 
-<h2>max(list[, iterator]):* <a href="#max" id="max" class="deep-link">#</a></h2>
+<h2>max(list, [iterator]):* <a href="#max" id="max" class="deep-link">#</a></h2>
 
 <p>Returns maximum value inside collection or use a custom iterator to define how
 items should be compared.</p>
@@ -121,7 +120,7 @@ max(['foo', 'lorem', 'amet'], function(val){
 }); // 'lorem'
 </pre>
 
-<h2>min(list[, iterator]):* <a href="#min" id="min" class="deep-link">#</a></h2>
+<h2>min(list, [iterator]):* <a href="#min" id="min" class="deep-link">#</a></h2>
 
 <p>Returns minimum value inside collection or use a custom iterator to define how
 items should be compared.</p>
@@ -182,7 +181,6 @@ reduce it to a single value.</p>
 var obj = {a: 1, b: 2, c: 3, d: 4};
 
 function sum(prev, cur, key, list) {
-    compare1.push(prev);
     return prev + cur;
 }
 
@@ -191,7 +189,7 @@ reduce(obj, sum); // 10
 
 <p>See: <a href="array.html#reduce">array/reduce</a>, <a href="object.html#reduce">object/reduce</a></p>
 
-<h2>reject(list, fn, thisObj):Array <a href="#reject" id="reject" class="deep-link">#</a></h2>
+<h2>reject(list, fn, [thisObj]):Array <a href="#reject" id="reject" class="deep-link">#</a></h2>
 
 <p>Creates a new array with all the elements that do <strong>not</strong> pass the truth test.
 Opposite of <a href="#filter"><code>filter()</code></a>.</p>
@@ -200,11 +198,11 @@ Opposite of <a href="#filter"><code>filter()</code></a>.</p>
 
 <pre class="brush:js">
 
-var numbers = [1, 2, 3, 4, 5, 6];
-reject(numbers, function(x) { return (x % 2) !== 0; }); // [2, 4, 6]
+var numbers = [1, 2, 3, 4, 5];
+reject(numbers, function(x) { return (x % 2) !== 0; }); // [2, 4]
 
 var obj = {a: 1, b: 2, c: 3, d: 4, e: 5};
-reject(obj, function(x) { return (x % 2) !== 0; }); // {b: 2, d: 4}
+reject(obj, function(x) { return (x % 2) !== 0; }); // [2, 4]
 </pre>
 
 <p>See: <a href="array.html#reject">array/reject</a>, <a href="object.html#reject">object/reject</a></p>
@@ -220,9 +218,9 @@ var obj = {
     bar : 2,
     lorem : 3
 };
-size(obj); // 3
-
+size(obj);     // 3
 size([1,2,3]); // 3
+size(null);    // 0
 </pre>
 
 <p>See: <a href="object.html#size">object/size</a></p>
@@ -241,11 +239,18 @@ var obj = {
     d: 'string'
 };
 
-some(obj, isNumber); // true
+some(obj, isNumber);      // true
+some(obj, isString);      // true
+some([1, 2, 3], isNumber) // true
 some([1, 2, 3], isString) // false
 </pre>
 
 <p>See: <a href="array.html#some">array/some</a>, <a href="object.html#some">object/some</a></p>
+
+<hr />
+
+<p>For more usage examples check specs inside <code>/tests</code> folder. Unit tests are the
+best documentation you can get...</p>
                 <hr />
                 <small>Documentation generated by <a href="https://github.com/millermedeiros/mdoc">mdoc</a>.</small>
             </div>
