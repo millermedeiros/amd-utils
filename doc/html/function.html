@@ -27,9 +27,11 @@
 <li><a href="#bind">bind()</a></li>
 <li><a href="#compose">compose()</a></li>
 <li><a href="#curry">curry()</a></li>
+<li><a href="#debounce">debounce()</a></li>
 <li><a href="#func">func()</a></li>
 <li><a href="#prop">prop()</a></li>
 <li><a href="#series">series()</a></li>
+<li><a href="#throttle">throttle()</a></li>
 </ul>
 
 <h2>bind(fn, context, [...args]):Function <a href="#bind" id="bind" class="deep-link">#</a></h2>
@@ -87,6 +89,35 @@ var add10 = curry(add, 10);
 console.log( add10(2) ); // 12
 </pre>
 
+<h2>debounce(fn, delay[, isAsap]):Function <a href="#debounce" id="debounce" class="deep-link">#</a></h2>
+
+<p>Creates a function that will delay the execution of <code>fn</code> until after <code>delay</code>
+milliseconds have elapsed since the last time it was invoked.</p>
+
+<p>Subsequent calls to the debounced function will return the result of the last
+<code>fn</code> call.</p>
+
+<pre class="brush:js">
+
+// sometimes less is more
+var lazyRedraw = debounce(redraw, 300);
+foo.on.resize.add(lazyRedraw);
+</pre>
+
+<p>In this visualization, <code>|</code> is a debounced-function call and <code>X</code> is the actual
+callback execution:</p>
+
+<pre><code>Default
+||||||||||||||||||||||||| (pause) |||||||||||||||||||||||||
+                         X                                 X
+
+Debounced with `isAsap == true`:
+||||||||||||||||||||||||| (pause) |||||||||||||||||||||||||
+X                                 X
+</code></pre>
+
+<p>See: <a href="#throttle"><code>throttle()</code></a></p>
+
 <h2>func(name):Function <a href="#func" id="func" class="deep-link">#</a></h2>
 
 <p>Returns a function that calls a method with given <code>name</code> on supplied object.
@@ -125,6 +156,33 @@ passing the same parameters to all of them. Useful for combining multiple
 // call `console.log()` and `doStuff()` for each item item in the array
 forEach(arr, series(console.log, doStuff));
 </pre>
+
+<h2>throttle(fn, interval):Function <a href="#throttle" id="throttle" class="deep-link">#</a></h2>
+
+<p>Creates a function that, when executed, will only call the <code>fn</code> function at
+most once per every <code>interval</code> milliseconds.</p>
+
+<p>If the throttled function is invoked more than once during the wait timeout,
+<code>fn</code> will also be called on the trailing edge of the timeout.</p>
+
+<p>Subsequent calls to the throttled function will return the result of the last
+<code>fn</code> call.</p>
+
+<pre class="brush:js">
+
+// sometimes less is more
+var lazyRedraw = throttle(redraw, 300);
+foo.on.resize.add(lazyRedraw);
+</pre>
+
+<p>In this visualization, <code>|</code> is a throttled-function call and <code>X</code> is the actual
+<code>fn</code> execution:</p>
+
+<pre><code>||||||||||||||||||||||||| (pause) |||||||||||||||||||||||||
+X    X    X    X    X    X        X    X    X    X    X    X
+</code></pre>
+
+<p>See: <a href="#debounce"><code>debounce()</code></a></p>
 
 <hr />
 
