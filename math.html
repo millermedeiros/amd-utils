@@ -32,6 +32,7 @@
 <li><a href="#loop">loop()</a></li>
 <li><a href="#map">map()</a></li>
 <li><a href="#norm">norm()</a></li>
+<li><a href="#round">round()</a></li>
 <li><a href="#snap">snap()</a></li>
 </ul>
 
@@ -250,6 +251,33 @@ opposite of <a href="#lerp"><code>lerp()</code></a>.</p>
 
 <p>See: <a href="#lerp"><code>lerp()</code></a>, <a href="#map"><code>map()</code></a></p>
 
+<h2>round(val[, step]):Number <a href="#round" id="round" class="deep-link">#</a></h2>
+
+<p>Round value to full steps. Similar to <code>Math.round()</code> but allow setting an
+arbitrary <em>radix</em>.</p>
+
+<pre><code>// default
+round(0.22);      // 0
+round(0.49);      // 0
+round(0.51);      // 1
+
+// custom radix
+round(0.22, 0.5); // 0
+round(0.49, 0.5); // 0.5
+round(0.51, 0.5); // 0.5
+round(0.74, 0.5); // 0.5
+round(0.75, 0.5); // 1
+round(1.24, 0.5); // 1
+round(1.25, 0.5); // 1.5
+round(1.74, 0.5); // 1.5
+</code></pre>
+
+<h3>Common use cases</h3>
+
+<p>Round values by increments of 0.5/5/10/1000/etc.</p>
+
+<p>See: <a href="#snap"><code>snap()</code></a>, <a href="#countSteps"><code>countSteps()</code></a></p>
+
 <h2>snap(val, step):Number <a href="#snap" id="snap" class="deep-link">#</a></h2>
 
 <p>Snap value to full steps. Similar to <code>Math.floor()</code> but can round value to
@@ -264,7 +292,7 @@ snap(15, 5); // 15
 
 <p>Round values by increments of 5/10/1000/etc.</p>
 
-<p>See: <a href="#countSteps"><code>countSteps()</code></a></p>
+<p>See: <a href="#round"><code>round()</code></a>, <a href="#countSteps"><code>countSteps()</code></a></p>
 
 <hr />
 
