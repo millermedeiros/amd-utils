@@ -316,6 +316,11 @@ functions <code>f()</code>, <code>g()</code>, and <code>h()</code> produces <cod
                     <span class="desc">Return a partially applied function supplying default arguments.</span>
                 </a>
                 
+                <a class="toc-item" href="function.html#debounce">
+                    <h4>debounce(fn, delay[, isAsap]):Function</h4>
+                    <span class="desc">Creates a function that will delay the execution of <code>fn</code> until after <code>delay</code> milliseconds have elapsed since the last time it was invoked.</span>
+                </a>
+                
                 <a class="toc-item" href="function.html#func">
                     <h4>func(name):Function</h4>
                     <span class="desc">Returns a function that calls a method with given <code>name</code> on supplied object. Useful for iteration methods like <code>array/map</code> and <code>array/forEach</code>.</span>
@@ -330,6 +335,11 @@ functions <code>f()</code>, <code>g()</code>, and <code>h()</code> produces <cod
                     <h4>series(...fn):Function</h4>
                     <span class="desc">Returns a function that will execute all the supplied functions in order and passing the same parameters to all of them. Useful for combining multiple
 <code>array/forEach</code> into a single one and/or for debugging.</span>
+                </a>
+                
+                <a class="toc-item" href="function.html#throttle">
+                    <h4>throttle(fn, interval):Function</h4>
+                    <span class="desc">Creates a function that, when executed, will only call the <code>fn</code> function at most once per every <code>interval</code> milliseconds.</span>
                 </a>
                 
             </div>
