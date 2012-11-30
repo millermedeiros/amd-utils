@@ -24,8 +24,10 @@
 <h2>Table of Contents <a href="#toc" name="toc" class="deep-link">#</a></h2>
 
 <ul>
+<li><a href="#ceil">ceil()</a></li>
 <li><a href="#clamp">clamp()</a></li>
 <li><a href="#countSteps">countSteps()</a></li>
+<li><a href="#floor">floor()</a></li>
 <li><a href="#inRange">inRange()</a></li>
 <li><a href="#isNear">isNear()</a></li>
 <li><a href="#lerp">lerp()</a></li>
@@ -33,8 +35,25 @@
 <li><a href="#map">map()</a></li>
 <li><a href="#norm">norm()</a></li>
 <li><a href="#round">round()</a></li>
-<li><a href="#snap">snap()</a></li>
 </ul>
+
+<h2>ceil(val[, step]):Number <a href="#ceil" id="ceil" class="deep-link">#</a></h2>
+
+<p>Round value up to full steps. Similar to <code>Math.ceil()</code> but can round value
+to an arbitrary <em>radix</em>.</p>
+
+<pre><code>ceil(7.2);   // 8
+ceil(7.8);   // 8
+ceil(7, 5);  // 10
+ceil(11, 5); // 15
+ceil(15, 5); // 15
+</code></pre>
+
+<h3>Common use cases</h3>
+
+<p>Round values by increments of 5/10/1000/etc.</p>
+
+<p>See: <a href="#round"><code>round()</code></a>, <a href="#floor"><code>floor()</code></a>, <a href="#countSteps"><code>countSteps()</code></a></p>
 
 <h2>clamp(val, min, max):Number <a href="#clamp" id="clamp" class="deep-link">#</a></h2>
 
@@ -122,6 +141,24 @@ var howManyFit = countSteps(containerWidth, itemWidth); // 12
 // {days:27, hours:4, minutes:26, seconds:5, milliseconds:454}
 parseMs(2348765454);
 </code></pre>
+
+<h2>floor(val[, step]):Number <a href="#floor" id="floor" class="deep-link">#</a></h2>
+
+<p>Round value down to full steps. Similar to <code>Math.floor()</code> but can round value
+to an arbitrary <em>radix</em>. (formerly <code>snap</code>)</p>
+
+<pre><code>floor(7.2);   // 7
+floor(7.8);   // 7
+floor(7, 5);  // 5
+floor(11, 5); // 10
+floor(15, 5); // 15
+</code></pre>
+
+<h3>Common use cases</h3>
+
+<p>Round values by increments of 5/10/1000/etc.</p>
+
+<p>See: <a href="#round"><code>round()</code></a>, <a href="#ceil"><code>ceil()</code></a>, <a href="#countSteps"><code>countSteps()</code></a></p>
 
 <h2>inRange(val, min, max[, threshold]):Boolean <a href="#inRange" id="inRange" class="deep-link">#</a></h2>
 
@@ -276,23 +313,7 @@ round(1.74, 0.5); // 1.5
 
 <p>Round values by increments of 0.5/5/10/1000/etc.</p>
 
-<p>See: <a href="#snap"><code>snap()</code></a>, <a href="#countSteps"><code>countSteps()</code></a></p>
-
-<h2>snap(val, step):Number <a href="#snap" id="snap" class="deep-link">#</a></h2>
-
-<p>Snap value to full steps. Similar to <code>Math.floor()</code> but can round value to
-an arbitrary <em>radix</em>.</p>
-
-<pre><code>snap(7, 5);  // 5
-snap(11, 5); // 10
-snap(15, 5); // 15
-</code></pre>
-
-<h3>Common use cases</h3>
-
-<p>Round values by increments of 5/10/1000/etc.</p>
-
-<p>See: <a href="#round"><code>round()</code></a>, <a href="#countSteps"><code>countSteps()</code></a></p>
+<p>See: <a href="#floor"><code>floor()</code></a>, <a href="#ceil"><code>ceil()</code></a>, <a href="#countSteps"><code>countSteps()</code></a></p>
 
 <hr />
 
