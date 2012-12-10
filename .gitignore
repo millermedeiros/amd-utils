@@ -2,6 +2,7 @@
 .project
 .settings/
 
+coverage/
 node_modules/
 .livereload
 
