@@ -21,7 +21,7 @@
 
 <p><a href='http://millermedeiros.github.com/amd-utils'>http://millermedeiros.github.com/amd-utils</a></p>
 
-<p>modular JavaScript utilities written in the
+<p>Modular JavaScript utilities written in the
 <a href="https://github.com/amdjs/amdjs-api/wiki/AMD">AMD</a> format.</p>
 
 <p>All code is library agnostic and consist mostly of helper methods that aren't
@@ -54,9 +54,60 @@ problems that aren't solved by most of them.</p>
 <li>Anything that could be a separate library and/or isn't a modular utility...</li>
 </ul>
 
+<h2>Why AMD?</h2>
+
+<p><strong>Because AMD is awesome!</strong></p>
+
+<p>By keeping each function in a separate package we can require just the
+methods/packages that are required by our app and let the RequireJS optimizer
+bundle only what is currently being used. We also have an extra benefit that we
+split the methods into separate packages so we reduce the chance of name
+collisions and the code is more organized. AMD is flexible and enables things
+that wouldn't be possible with a different module system or with a conventional
+namespace approach (remapping a module, conditionally loading, etc).</p>
+
+<p>Read these links if you still can't see why:</p>
+
+<ul>
+<li><a href="http://requirejs.org/docs/whyamd.html">Why AMD?</a></li>
+<li><a href="blog.millermedeiros.com/2011/09/amd-is-better-for-the-web-than-commonjs-modules/">AMD is better for the web than CJS modules</a></li>
+<li><a href="http://briancavalier.com/presentations/pgh-js-amd-10-2011/">AMD &amp; CommonJS modules</a></li>
+<li><a href="http://unscriptable.com/index.php/2011/09/30/amd-versus-cjs-whats-the-best-format/">AMD vs. CJS</a></li>
+<li><a href="http://blog.millermedeiros.com/namespaces-are-old-school/">Namespaces are Old School</a></li>
+</ul>
+
+<p>PS: Your mileage may vary...</p>
+
+<h2>Node.js</h2>
+
+<p>AMD-utils also works on <a href="http://nodejs.org">node.js</a>, just run:</p>
+
+<pre><code>npm install amd-utils
+</code></pre>
+
+<p>It will download amd-utils from the NPM repository and convert the AMD modules
+into a node.js compatible format using
+<a href="https://github.com/millermedeiros/nodefy">nodefy</a>, there is no extra overhead,
+you can use it like a regular node.js package.</p>
+
+<p>```js
+// you can load individual methods
+var map = require('amd-utils/array/map');
+map([1, 2], function(v){ return val * val; }); // [1, 4]</p>
+
+<p>// a single package
+var stringUtils = require('amd-utils/string');
+stringUtils.camelCase('Foo Bar'); // "fooBar"</p>
+
+<p>// or the whole lib
+var utils = require('amd-utils');
+console.log( utils.math.clamp(100, 0, 50) ); // 50
+```</p>
+
 <h2>Important</h2>
 
-<p>Since each function is a separate module they have independent version numbers.</p>
+<p>Since each function is a separate module they have independent version numbers
+and a last edit date.</p>
 
 <p>Since code is very modular (broken into multiple files) it is really important
 that you run an optimizer before deploying the code to a server, otherwise you
@@ -96,79 +147,71 @@ implementation is as good as possible.</p>
 
 <p>Check the <a href="https://github.com/millermedeiros/amd-utils/contributors">contributors list at github</a>.</p>
 
-<h2>Why AMD?</h2>
+<h2>Build Script</h2>
 
-<p><strong>Because AMD is awesome!</strong> Read these links if you still can't see why:</p>
+<p>The build script have a set of very helpful commands, run <code>npm install --dev</code>
+(only required once) and then check the available commands:</p>
 
-<ul>
-<li><a href="http://requirejs.org/docs/whyamd.html">Why AMD?</a></li>
-<li><a href="blog.millermedeiros.com/2011/09/amd-is-better-for-the-web-than-commonjs-modules/">AMD is better for the web than CJS modules</a></li>
-<li><a href="http://briancavalier.com/presentations/pgh-js-amd-10-2011/">AMD &amp; CommonJS modules</a></li>
-<li><a href="http://unscriptable.com/index.php/2011/09/30/amd-versus-cjs-whats-the-best-format/">AMD vs. CJS</a></li>
-</ul>
-
-<p>Your mileage may vary...</p>
-
-<h2>License</h2>
-
-<p>Released under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a>.</p>
-
-<h2>Node.js</h2>
-
-<p>AMD-utils also works on <a href="http://nodejs.org">node.js</a>, just run:</p>
-
-<pre><code>npm install amd-utils
+<pre><code>node build --help
 </code></pre>
 
-<p>It will download amd-utils from the NPM repository and convert the AMD modules
-into a node.js compatible format.</p>
-
-<pre><code>// you can load individual methods
-var map = require('amd-utils/array/map');
-map([1, 2], function(v){ return val * val; }); // [1, 4]
-
-// a single package
-var stringUtils = require('amd-utils/string');
-stringUtils.camelCase('Foo Bar'); // "fooBar"
-
-// or the whole lib
-var utils = require('amd-utils');
-console.log( utils.math.clamp(100, 0, 50) ); // 50
-</code></pre>
-
-<h2>Building The Documentation</h2>
-
-<p>The documentation is generated based on markdown files inside the
-<code>doc/mdown</code> folder using <a href="https://github.com/millermedeiros/mdoc">mdoc</a>.
-To compile the docs run:</p>
-
-<pre><code>npm install --dev
-node build doc
-</code></pre>
-
-<p>It will replace all the files inside the <code>doc/html</code> folder and update packages
-and specs runners, this way we avoid human mistakes.</p>
-
-<p>Documentation files should be always up-to-date since modules are only
-committed to the <code>master</code> branch after they get proper tests and documentation.</p>
-
-<h2>Keeping packages and specs in sync</h2>
+<h3>Keeping packages and specs in sync</h3>
 
 <p>The build script can be used to update packages and specs files:</p>
 
 <pre><code>node build pkg
 </code></pre>
 
-<p>You can also add new modules with the command <code>node build add
-package/moduleName</code>, this will create a new module <code>moduleName</code> inside the
-folder <code>src/package</code> and also a failing spec inside the <code>tests</code> folder.</p>
+<p>The packages/specs are automatically updated every time you run <code>npm test</code> as
+well.</p>
 
-<p>For other available options see <code>node build -h</code>.</p>
+<p>You can also add new modules with the command <code>node build add
+package/moduleName</code>, this will create a new module <code>src/package/moduleName.js</code>
+and also a failing spec <code>tests/spec/package/spec-moduleName.js</code>.</p>
+
+<h3>Tests &amp; Code Coverage</h3>
+
+<p>Tests can be found inside the <code>tests</code> folder, to execute them in the browser
+open the <code>tests/runner.html</code>. The same tests also work on node.js by running
+<code>npm test</code>.</p>
+
+<p>We should have tests for all methods and ensure we have a high code coverage
+through our continuous integration server
+(<a href="https://travis-ci.org/millermedeiros/amd-utils">travis</a>). When you ask for
+a pull request Travis will automatically run the tests on node.js and check the
+code coverage as well.</p>
+
+<p>We run <code>node build pkg</code> automatically before any <code>npm test</code>, so specs and
+packages should always be in sync. (will avoid human mistakes)</p>
+
+<p>To check code coverage run <code>npm test --coverage</code>, it will generate the reports
+inside the <code>coverage</code> folder and also log the results. Please note that node.js
+doesn't execute all code branches since we have some conditionals that are only
+met on old JavaScript engines (eg. IE 7-8), so we will never have 100% code
+coverage (but should be close to it).</p>
+
+<h3>Building The Documentation</h3>
+
+<p>The documentation is generated based on markdown files inside the
+<code>doc/mdown</code> folder using <a href="https://github.com/millermedeiros/mdoc">mdoc</a>.
+To compile the docs run:</p>
+
+<pre><code>node build doc
+</code></pre>
+
+<p>It will replace all the files inside the <code>doc/html</code> folder.</p>
+
+<p>Documentation files should be always up-to-date since modules are only
+committed to the <code>master</code> branch after they get proper tests and documentation.</p>
 
 <h2>Documentation</h2>
 
 <p>Online documentation can be found at <a href='http://millermedeiros.github.com/amd-utils'>http://millermedeiros.github.com/amd-utils</a>
 or inside the <code>doc</code> folder.</p>
+
+<h2>License</h2>
+
+<p>Released under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a>.</p>
 <h2>Documentation</h2>
 <ul class="mod-list">
 
