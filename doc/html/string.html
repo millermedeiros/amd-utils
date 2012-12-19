@@ -56,6 +56,7 @@
 <li><a href="#unCamelCase">unCamelCase()</a></li>
 <li><a href="#underscore">underscore()</a></li>
 <li><a href="#unescapeHtml">unescapeHtml()</a></li>
+<li><a href="#unescapeUnicode">unescapeUnicode()</a></li>
 <li><a href="#unhyphenate">unhyphenate()</a></li>
 <li><a href="#upperCase">upperCase()</a></li>
 </ul>
@@ -147,6 +148,8 @@ reg = new RegExp(str);               // /\[lorem\.ipsum\]/
 
 <p>It will only escape non-printable ASCII chars unless <code>shouldEscapePrintable</code> is
 set to <code>true</code>.</p>
+
+<p>See: <a href="#unescapeUnicode"><code>unescapeUnicode()</code></a></p>
 
 <pre class="brush:js">
 
@@ -527,6 +530,18 @@ underscore('loremIpsum');                  // "lorem_ipsum"
 <pre class="brush:js">
 
 unescapeHtml('lorem &amp;amp; &amp;quot;ipsum&amp;quot;'); // 'lorem & "ipsum"'
+</pre>
+
+<h2>unescapeUnicode(str):String <a href="#unescapeUnicode" id="unescapeUnicode" class="deep-link">#</a></h2>
+
+<p>Unescapes unicode char sequences.</p>
+
+<p>See: <a href="#escapeUnicode"><code>escapeUnicode()</code></a></p>
+
+<pre class="brush:js">
+
+unescapeUnicode('\\u0066\\u00f8\\u006f\\u0020\\u0062\\u00e5\\u0072');
+// > 'føo bår'
 </pre>
 
 <h2>unhyphenate(str):String <a href="#unhyphenate" id="unhyphenate" class="deep-link">#</a></h2>
