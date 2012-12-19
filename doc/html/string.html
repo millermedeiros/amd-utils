@@ -30,6 +30,7 @@
 <li><a href="#endsWith">endsWith()</a></li>
 <li><a href="#escapeHtml">escapeHtml()</a></li>
 <li><a href="#escapeRegExp">escapeRegExp()</a></li>
+<li><a href="#escapeUnicode">escapeUnicode()</a></li>
 <li><a href="#hyphenate">hyphenate()</a></li>
 <li><a href="#interpolate">interpolate()</a></li>
 <li><a href="#lowerCase">lowerCase()</a></li>
@@ -138,6 +139,21 @@ escapeHtml('lorem & "ipsum"'); // "lorem &amp;amp; &amp;quot;ipsum&amp;quot;"
 
 str = escapeRegExp('[lorem.ipsum]'); // "\\[lorem\\.ipsum\\]"
 reg = new RegExp(str);               // /\[lorem\.ipsum\]/
+</pre>
+
+<h2>escapeUnicode(str[, shouldEscapePrintable]):String <a href="#escapeUnicode" id="escapeUnicode" class="deep-link">#</a></h2>
+
+<p>Unicode escape chars.</p>
+
+<p>It will only escape non-printable ASCII chars unless <code>shouldEscapePrintable</code> is
+set to <code>true</code>.</p>
+
+<pre class="brush:js">
+
+escapeUnicode('føo bår');
+// > "f\u00f8o b\u00e5r"
+escapeUnicode('føo bår', true);
+// > "\u0066\u00f8\u006f\u0020\u0062\u00e5\u0072"
 </pre>
 
 <h2>hyphenate(str):String <a href="#hyphenate" id="hyphenate" class="deep-link">#</a></h2>
