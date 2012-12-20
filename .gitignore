@@ -1,12 +1,50 @@
 .tmp*
 .project
 .settings/
-
-coverage/
-node_modules/
 .livereload
 
 .DS_Store?
 ehthumbs.db
 Icon?
 Thumbs.db
+
+
+# ----
+
+# we also ignore node_modules
+node_modules/
+
+# we ignore coverage reports since they change at each build
+coverage/
+
+
+# ----
+
+
+# ignore files added by `npm install`
+
+/array.js
+/array/
+/collection.js
+/collection/
+/financial.js
+/financial/
+/function.js
+/function/
+/index.js
+/lang.js
+/lang/
+/math.js
+/math/
+/number.js
+/number/
+/object.js
+/object/
+/queryString.js
+/queryString/
+/random.js
+/random/
+/string.js
+/string/
+/time.js
+/time/
