@@ -25,6 +25,7 @@
 
 <ul>
 <li><a href="#contains">contains()</a></li>
+<li><a href="#deepFillIn">deepFillIn()</a></li>
 <li><a href="#deepMixIn">deepMixIn()</a></li>
 <li><a href="#every">every()</a></li>
 <li><a href="#fillIn">fillIn()</a></li>
@@ -69,6 +70,30 @@ contains(obj, 2);      // true
 contains(obj, 'foo');  // false
 </pre>
 
+<h2>deepFillIn(target, ...objects):Object <a href="#deepFillIn" id="deepFillIn" class="deep-link">#</a></h2>
+
+<p>Fill missing properties recursively.</p>
+
+<p>It's different from <code>deepMixIn</code> since it won't override any existing property.
+It's also different from <code>merge</code> since it won't clone child objects during the
+process.</p>
+
+<p>It returns the target object and mutates it in place.</p>
+
+<p>See: <a href="#fillIn"><code>fillIn()</code></a>, <a href="#deepMixIn"><code>deepMixIn()</code></a>, <a href="#merge"><code>merge()</code></a></p>
+
+<pre class="brush:js">
+
+var base = {
+    foo : {
+        bar : 123
+    },
+    lorem : 'ipsum'
+};
+var options = deepMixIn({foo : { baz : 45 }, lorem : 'amet'}, base);
+// > {foo: {bar:123, baz : 45}, lorem : 'amet'}
+</pre>
+
 <h2>deepMixIn(target, ...objects):Object <a href="#deepMixIn" id="deepMixIn" class="deep-link">#</a></h2>
 
 <p>Mixes objects into the target object, recursively mixing existing child objects
@@ -90,7 +115,7 @@ deepMixIn(target, { foo: { id: 2, vals: [5] } });
 console.log(target); // { foo: { name: "foo", id: 2, vals : [5, 2] } }
 </code></pre>
 
-<p>See: <a href="#mixIn"><code>mixIn()</code></a>, <a href="#merge"><code>merge()</code></a></p>
+<p>See: <a href="#mixIn"><code>mixIn()</code></a>, <a href="#merge"><code>merge()</code></a>, <a href="#deepFillIn"><code>deepFillIn()</code></a></p>
 
 <h2>every(obj, callback, [thisObj]):Boolean <a href="#every" id="every" class="deep-link">#</a></h2>
 
@@ -124,7 +149,7 @@ fillIn({foo:'ipsum'}, base); // {foo:'ipsum', num:123}
 <p>PS: it allows merging multiple objects at once, the first ones will take
 precedence.</p>
 
-<p>See: <a href="#mixIn"><code>mixIn()</code></a>, <a href="#merge"><code>merge()</code></a></p>
+<p>See: <a href="#mixIn"><code>mixIn()</code></a>, <a href="#merge"><code>merge()</code></a>, <a href="#deepFillIn"><code>deepFillIn()</code></a></p>
 
 <h2>filter(obj, callback, [thisObj]) <a href="#filter" id="filter" class="deep-link">#</a></h2>
 
@@ -389,7 +414,7 @@ var obj2 = {a: {b: 2, d : {f : 'yeah'} }};
 merge(obj1, obj2); // {a: {b : 2, c : 1, d : {e : 1, f : 'yeah'}}}
 </pre>
 
-<p>See: <a href="#fillIn"><code>fillIn()</code></a>, <a href="#mixIn"><code>mixIn()</code></a></p>
+<p>See: <a href="#deppMixIn"><code>deepMixIn()</code></a>, <a href="#deepFillIn"><code>deepFillIn()</code></a></p>
 
 <h2>max(obj[, iterator]):* <a href="#max" id="max" class="deep-link">#</a></h2>
 
