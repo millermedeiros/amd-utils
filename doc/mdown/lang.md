@@ -4,9 +4,15 @@ Language Utilities. Easier inheritance, scope handling, type checks.
 
 
 
-## clone(val):*
+## clone(val[, shouldCloneInstances]):*
 
 Deep clone native types like Object, Array, RegExp, Date and primitives.
+
+If `shouldCloneInstances` is set to `true` it will clone custom objects
+(created with a custom constructor function) using
+[`lang/createObject`](#createObject). By default it will clone all enumerable
+properties into a plain object but won't use `createObject` (most common/useful
+behavior).
 
 ### Example
 
