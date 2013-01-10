@@ -1,14 +1,19 @@
-define(['../object/forOwn', './kindOf'], function (forOwn, kindOf) {
+define(['../object/forIn', './kindOf', './createObject'], function (forIn, kindOf, createObject) {
+
+    var _cloneInstances;
 
     /**
      * Clone native types.
-     * @version 0.1.0 (2012/07/13)
+     * @version 0.2.0 (2013/01/02)
      */
-    function clone(val){
+    function clone(val, shouldCloneInstances){
+        // clone is synchronous so we store a local var to avoid creating
+        // unnecessary closures or passing multiple arguments around
+        _cloneInstances = !!shouldCloneInstances;
         var result;
         switch ( kindOf(val) ) {
             case 'Object':
-                result = cloneObject(val);
+                result = _cloneInstances? createObject(val) : cloneObject(val);
                 break;
             case 'Array':
                 result = deepCloneArray(val);
@@ -22,17 +27,19 @@ define(['../object/forOwn', './kindOf'], function (forOwn, kindOf) {
             default:
                 result = val;
         }
+        _cloneInstances = false;
         return result;
     }
 
     function cloneObject(source) {
         var out = {};
-        forOwn(source, copyProperty, out);
+        forIn(source, copyProperty, out);
         return out;
     }
 
     function copyProperty(val, key){
-        this[key] = clone(val);
+        /*jshint validthis:true*/
+        this[key] = clone(val, _cloneInstances);
     }
 
     function cloneRegExp(r){
@@ -53,7 +60,7 @@ define(['../object/forOwn', './kindOf'], function (forOwn, kindOf) {
             n = arr.length,
             val;
         while (++i < n) {
-            out[i] = clone(arr[i]);
+            out[i] = clone(arr[i], _cloneInstances);
         }
         return out;
     }

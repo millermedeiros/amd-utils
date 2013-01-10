@@ -48,9 +48,15 @@
 <li><a href="#toArray">toArray()</a></li>
 </ul>
 
-<h2>clone(val):* <a href="#clone" id="clone" class="deep-link">#</a></h2>
+<h2>clone(val[, shouldCloneInstances]):* <a href="#clone" id="clone" class="deep-link">#</a></h2>
 
 <p>Deep clone native types like Object, Array, RegExp, Date and primitives.</p>
+
+<p>If <code>shouldCloneInstances</code> is set to <code>true</code> it will clone custom objects
+(created with a custom constructor function) using
+<a href="#createObject"><code>lang/createObject</code></a>. By default it will clone all enumerable
+properties into a plain object but won't use <code>createObject</code> (most common/useful
+behavior).</p>
 
 <h3>Example</h3>
 
