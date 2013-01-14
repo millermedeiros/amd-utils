@@ -250,6 +250,57 @@
     }());
 
 
+    var deprecate = (function(){
+        // just a quick monkey-patch to warn users that project was renamed
+
+        var overlay, prompt;
+
+        function init(){
+            overlay = $('<div id="overlay" />');
+            prompt = $(
+                '<div id="prompt">'+
+                    '<h1>amd-utils is now called <a href="http://moutjs.com">mout</a></h1>'+
+                    'visit <a href="http://moutjs.com">moutjs.com</a> '+
+                    'and read the <a href="https://github.com/mout/mout/wiki/Migrating-old-projects-from-amd-utils">migration tips</a>'+
+                    '<div style="margin:2em 0 0"><button type="button" id="btn-close">continue to amd-utils documentation</button></div>'+
+                '</div>');
+
+            overlay.css({
+                zIndex : 999,
+                background : 'rgba(0,0,0,0.5)',
+                position: 'fixed',
+                top: 0,
+                right:0,
+                bottom: 0,
+                left : 0
+            });
+            prompt.css({
+                zIndex : 1000,
+                background : '#fff',
+                padding : '2em',
+                position: 'fixed',
+                width : '400px',
+                top: '50%',
+                left: '50%',
+                marginLeft : '-250px',
+                marginTop : '-100px'
+            });
+            overlay.appendTo('body');
+            prompt.appendTo('body');
+            overlay.click(closePrompt);
+            $('#btn-close').click(closePrompt);
+        }
+
+        function closePrompt(){
+            overlay.fadeOut(500);
+            prompt.fadeOut(500);
+        }
+
+        return {
+            init : init
+        };
+    }());
+
     // ----
 
 
@@ -257,6 +308,7 @@
         _rootPath = $('body').data('rootPath'); //fix relative links on nested paths
         sidebar.init();
         syntax.init();
+        deprecate.init();
         if(_curPackage !== 'index'){
             source.init();
             inject.init();
